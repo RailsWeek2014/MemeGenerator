@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  views: 1
+  upvotes: 1
+  downvotes: 1
+  private: false
+
+two:
+  title: MyString
+  description: MyText
+  views: 1
+  upvotes: 1
+  downvotes: 1
+  private: false

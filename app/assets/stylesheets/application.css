@@ -1,0 +1,144 @@
+// Place all the styles related to the memes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    font-family:Arial, Helvetica, sans-serif; 
+    font-size: 13px;
+    background-color: #ddd;
+}
+#container {
+    width: 1000px;
+    margin: 0 auto;
+}
+#header {
+    background-color: #1f18b6;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+}
+#content {
+    border: 2px solid #1f18b6;
+    padding: 10px;
+    background-color: #fff;
+    min-height: 200px;
+    h2 {
+        font-size: 1.1em;
+        margin-bottom: 0.5em;
+    }
+}
+label {
+    display: block;
+}
+input {
+    margin: 0.5em 0;
+}
+input[type="submit"] {
+    margin-top: 2em;
+}
+
+.selected img{
+    border-style: solid;
+    border-color: #2300ff;
+}
+
+input[type=text]{
+    padding:6px;font-size:18px; 
+    border:2px solid #ccc;
+    background: white;
+    padding: 4px;
+    width:400px;
+    margin-bottom: 1px;
+    border-radius: 4px;
+    -webkit-transition: 0.1s ease-in-out all;
+    -moz-transition: 0.1s ease-in-out all;
+    -ms-transition: 0.1s ease-in-out all;
+    -o-transition: 0.1s ease-in-out all;
+    transition: 0.1s ease-in-out all;
+}
+
+textarea{
+    padding:6px;font-size:18px; 
+    border:2px solid #ccc;
+    background: white;
+    padding: 4px;
+    width:400px;
+    margin-bottom: 1px;
+    border-radius: 4px;
+    -webkit-transition: 0.1s ease-in-out all;
+    -moz-transition: 0.1s ease-in-out all;
+    -ms-transition: 0.1s ease-in-out all;
+    -o-transition: 0.1s ease-in-out all;
+    transition: 0.1s ease-in-out all;
+}
+
+
+
+input[type=submit]{
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    font: bold 12px/1em HelveticaNeue, Arial, sans-serif;
+    padding: 6px 10px;
+    color: #555;
+    text-shadow: 0 1px 0 #fff;
+    
+    background: #f5f5f5;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#f0f0f0));
+    background: -moz-linear-gradient(top, #f9f9f9, #f0f0f0);
+    
+    border: 1px solid #dedede;
+    border-color: #dedede #d8d8d8 #d3d3d3;
+    
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    
+    -webkit-box-shadow: 0 1px 2px #eaeaea, inset 0 1px 0 #fbfbfb;
+    -moz-box-shadow: 0 1px 2px #eaeaea, inset 0 1px 0 #fbfbfb;
+    -ms-box-shadow: 0 1px 2px #eaeaea, inset 0 1px 0 #fbfbfb;
+    -o-box-shadow: 0 1px 2px #eaeaea, inset 0 1px 0 #fbfbfb;
+    box-shadow: 0 1px 2px #eaeaea, inset 0 1px 0 #fbfbfb;
+}
+
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC3UlEQVR4Xm2RX0iTXQDGn1c3N2uzbUwvwrpww9jcRW5qlvLdqNCHeKUGaxd+qFdeBUEiSYYYKJ9/SnCwm9puhjGD11ARTOFTIckMW15JGJVDy/xE9y7d9r7ndHZgMsQfPBfnvM/z8PIcnOW/7u6/t/4d9EcGh/27T0f9u89G/ZGhYf+XoSH/cnd3I84gIIMJt7vBeckQUtbWNFAIQCkoE0AAQYCmvFz+GI22zBqNQa/XyzOqdNhbU9Ngk+XQ8aSoobKM80js7KiKq6oCe5ubYATByAKj02ptKCUkRBYXNSeKgi9GIyjAleabyYRj9k1eWlJdTyQCj4uL7yJFk91+e9JecrJeUEDf5efT5UeP6PHREZ2rr6dhdk5pvq6OSvv7dHVkhK6y8wbTnM2WbHU47uC+zeZfY6YPZjN939hICSGUwUvesJL52loeTvOpre20uMdiEbPI4RFYBAoYi4vYCwTASpBz8SJuBYO4MT6OXIOB3/0/MQFlairl58qOxaCiiszDAsBX//rgAWRm1jc38w2gViMmSTiensb2vXsAIenn4yUqWZZBBAECtwvcsPr8OUoqK6HR6bhZjscRZneXFQUC86ZJUEB1QgHCw+AlEasVRQMDSL1GIhrl709Y8GpfHz53duLqxsZpSZwSZEmaHBCA68higbmnByeUIsrC6pUVqObnIUkx/E4mkf/wIQ4dDvDNUp7sbGRtm0yv17XaJAGQd3AAQyIBKSrBEA7jR1cXfvb24tLKW8TYYHmsxMg8CoDNCxfIlsEg8u2qTCZ3q14fKJIktdpshpENuOfzpQfjv2xub4c0M4N4JILvOh0JxGIdcbvdxws8Hg9+LSy4Pbm5gSuHh2qcD1/+h15PXsbjHerqat/LUAgCMvirsND9j1YbuJYqoZQPmMk2C79IJjtcHo/vSX8/zqXO6WoauFEp+ktLxSmXS5wtKxNfOZ2ir6JC9Ny82eIdG0MmfwCjX3/U2vu6zQAAAABJRU5ErkJggg==);
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+#navigation {
+    width: 100%;
+    float: left;
+    margin: 0 0 3em 0;
+    padding: 0;
+    list-style: none;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ccc; 
+    border-top: 1px solid #ccc; 
+}
+
+#navigation li {
+    float: left; 
+}
+
+#navigation li a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #069;
+    border-right: 1px solid #ccc; 
+}
+
+#navigation li a:hover {
+    color: #069;
+    background-color: #fff; 
+}

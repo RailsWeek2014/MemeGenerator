@@ -1,0 +1,12 @@
+<h1>Meme anzeigen</h1>
+<b>Titel:</b>
+<%= @meme.title %> </p>
+<b>Beschreibung</b>
+<%= @meme.description %> </p>
+<p>
+    <b>Erstellt am</b>
+    <%= @meme.created_at %>
+<p>
+<%= image_tag '/uploads/generated_memes/' + @meme.id.to_s + '.jpg' %>
+</p>
+</p> <p>

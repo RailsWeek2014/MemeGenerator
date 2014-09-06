@@ -1,0 +1,10 @@
+<h1>Template anzeigen</h1>
+<b>Titel:</b>
+<%= @meme_template.title %> </p>
+<p>
+<b>Bild:</b>
+<%= image_tag @meme_template.template_img.to_s %>  </p>
+<p>
+    <b>Erstellt am</b>
+    <%= @meme_template.created_at %>
+</p> <p>

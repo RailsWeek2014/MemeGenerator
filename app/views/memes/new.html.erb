@@ -1,0 +1,39 @@
+<h1>Meme erstellen</h1>
+<% if @meme.errors.any? %>
+    
+    <% @meme.errors.full_messages.each do |msg| %>
+    <div class="error"><%= msg %></div>
+    <% end %>
+
+<% end %>
+Template auswählen:
+<br />
+<% MemeTemplate.all.each do |d| %>
+   <span id="templateimg<%= d.id.to_s %>"><%=  link_to image_tag('/uploads/meme_template/template_img/' + d.id.to_s + '/thumb_image.jpg', alt: d.title , title: d.title), 'javascript:setTemplate(' + d.id.to_s + ')' %></span>
+<% end %>
+<%= form_for(@meme) do |f| %>
+<p>
+    <%= f.label :Titel %>
+    <%= f.text_field :title, :onkeyup => 'showCharLen("meme_title", 100)', :maxlength => 100 %>
+    <span id="remaining_chars_meme_title">100</span>
+</p>
+<p>
+    <%= f.label :Beschreibung %>
+    <%= f.text_area :description, :onkeyup => 'showCharLen("meme_description", 200)', :maxlength => 200 %>
+    <span id="remaining_chars_meme_description">200</span>
+</p>
+<p>
+    <%= f.label :"Text oben" %>
+    <%= f.text_area :textoben, :onkeyup => 'showCharLen("meme_textoben", 120)', :maxlength => 120 %>
+    <span id="remaining_chars_meme_textoben">120</span>
+</p>
+<p>
+    <%= f.label :"Text unten" %>
+    <%= f.text_area :textunten, :onkeyup => 'showCharLen("meme_textunten", 120)', :maxlength => 120 %>
+    <span id="remaining_chars_meme_textunten">120</span>
+</p>
+<%= f.hidden_field :template_id, :value => '' %>
+<p>
+    <%= f.submit "meme erstellen" %>
+</p>
+<% end %>

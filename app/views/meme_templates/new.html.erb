@@ -1,0 +1,20 @@
+<h1>Template erstellen</h1>
+<% if @meme_template.errors.any? %>
+    
+    <% @meme_template.errors.full_messages.each do |msg| %>
+    <div class="error"><%= msg %></div>
+    <% end %>
+
+<% end %>
+<%= form_for(@meme_template) do |f| %>
+<p>
+    <%= f.label :Titel %>
+    <%= f.text_field :title, :onkeyup => 'showCharLen("meme_template_title", 100)', :maxlength => 100 %>
+    <span id="remaining_chars_meme_template_title">100</span>
+</p>
+    <%= f.label :"Datei auswählen" %>
+    <%= f.file_field :template_img %> 
+<p>
+     <%= f.submit "template anlegen" %>
+</p>
+<% end %>

@@ -1,0 +1,2 @@
+module MemeTemplatesHelper
+end
