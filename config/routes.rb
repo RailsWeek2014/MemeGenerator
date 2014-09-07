@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get "memes/new" => "memes#new", as: "newmeme"
   get "meme_templates/new" => "meme_templates#new", as: "newtemplate"
-
+  get "memes/list" => "memes#list", as: "listmeme"
 
   get "memes/:id" => "memes#show", as: "meme"
   get "meme_templates/:id" => "meme_templates#show"

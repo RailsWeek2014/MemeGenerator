@@ -47,7 +47,7 @@ module MemesHelper
 
         if isup
         system("convert public/uploads/meme_template/template_img/" + template_id +  "/image.jpg -background transparent -fill white -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity North caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg")
-        puts "convert public/uploads/meme_template/template_img/" + template_id +  "/image.jpg -background transparent -fill white -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity North caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg"
+        #puts "convert public/uploads/meme_template/template_img/" + template_id +  "/image.jpg -background transparent -fill white -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity North caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg"
 
         else
         # Text im unteren Bereich des Memes

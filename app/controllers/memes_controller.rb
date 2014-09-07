@@ -11,22 +11,23 @@ class MemesController < ApplicationController
 
     def create
         @meme = Meme.new(meme_params)
-
          if @meme.save 
-
             if (current_user != nil)
                 current_user.memes << @meme  
             end
-
             MemesHelper.make_meme(meme_params[:textoben], meme_params[:textunten], meme_params[:template_id], @meme.id)
-        
             redirect_to meme_path(@meme.id.to_s)
         else                    
             render action: "new"
         end 
     end
 
-    def delete
+    def list
+        if (current_user != nil)
+            @memes = current_user.memes
+        else
+            redirect_to index_path
+        end
 
     end
 
