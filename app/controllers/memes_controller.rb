@@ -13,6 +13,11 @@ class MemesController < ApplicationController
         @meme = Meme.new(meme_params)
 
          if @meme.save 
+
+            if (current_user != nil)
+                current_user.memes << @meme  
+            end
+
             MemesHelper.make_meme(meme_params[:textoben], meme_params[:textunten], meme_params[:template_id], @meme.id)
         
             redirect_to meme_path(@meme.id.to_s)

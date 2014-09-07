@@ -41,4 +41,5 @@ gem 'spring',        group: :development
 gem 'better_errors'
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
-gem 'subexec'
+gem "twitter-bootstrap-rails"
+gem 'devise'

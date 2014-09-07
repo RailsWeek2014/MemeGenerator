@@ -12,19 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
-
-function setTemplate(id) {
-    document.getElementById('meme_template_id').value = id;
-    var elements = document.getElementsByClassName('selected');
-
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].className = "";
-    }
-    var d = document.getElementById("templateimg" + id);
-    d.className = "selected";
-}
 
 function showCharLen(id, maxchars) {
     var len = document.getElementById(id).value.length;

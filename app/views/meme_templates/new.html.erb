@@ -1,20 +1,51 @@
-<h1>Template erstellen</h1>
-<% if @meme_template.errors.any? %>
-    
-    <% @meme_template.errors.full_messages.each do |msg| %>
-    <div class="error"><%= msg %></div>
-    <% end %>
+<% content_for :title do %>Template anlegen<% end %>
+<div class="page-header">
+  <h1>Template anlegen</h1>
+</div>
+<%= form_for @meme_template, :html => { :class => "form-horizontal meme_template" } do |f| %>
 
-<% end %>
-<%= form_for(@meme_template) do |f| %>
-<p>
-    <%= f.label :Titel %>
-    <%= f.text_field :title, :onkeyup => 'showCharLen("meme_template_title", 100)', :maxlength => 100 %>
-    <span id="remaining_chars_meme_template_title">100</span>
-</p>
-    <%= f.label :"Datei auswählen" %>
-    <%= f.file_field :template_img %> 
-<p>
-     <%= f.submit "template anlegen" %>
-</p>
+    <% if @meme_template.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title">Es traten <%= @meme_template.errors.count %> Fehler beim anlegen des Templates auf:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @meme_template.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+<div class='col-md-12'>
+<div class='row'>
+<div class='col-md-12'>
+<fieldset>
+<!-- Text input-->
+<div class='form-group'>
+    <%= f.label :Titel, :class => 'control-label' %> <i>(<span id="remaining_chars_meme_template_title">100</span> Zeichen verbleibend)</i>
+  <div class="controls">
+    <%= f.text_field :title, :onkeyup => 'showCharLen("meme_template_title", 100)', :maxlength => 100, :class => 'form-control' %>
+  </div>
+</div>
+
+<!-- File Button --> 
+<div class='form-group'>
+  <%= f.label :"Datei auswählen", :class => 'control-label' %>
+  <div class="controls">
+    <%= f.file_field :template_img, :class => 'form-control' %> 
+  </div>
+</div>
+
+<!-- Button -->
+<div class='form-group'>
+  <div class="controls">
+    <%= f.submit "template anlegen", :class => 'btn btn-primary' %>
+  </div>
+</div>
+</fieldset>
+</div>
+</div>
+</div>
 <% end %>

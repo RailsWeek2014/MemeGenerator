@@ -1,39 +1,95 @@
-<h1>Meme erstellen</h1>
-<% if @meme.errors.any? %>
+<% content_for :title do %>Meme erstellen<% end %>
+<div class="page-header">
+  <h1>Meme erstellen</h1>
+</div>
+
+    <% if @meme.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title">Es traten <%= @meme.errors.count %> Fehler beim erstellen des Memes auf:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @meme.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+<%= form_for @meme, :html => { :class => "form-horizontal meme" } do |f| %>
+
+<div class='col-md-12'>
+<div class='row'>
+<div class='col-md-12'>
+<fieldset>
+
+<div class="picker">
+<select class="image-picker show-html" name="meme[template_id]">
+
+<% MemeTemplate.all.each do |d| %>
+<% @str = '<option data-img-src="/uploads/meme_template/template_img/' + d.id.to_s + '/thumb_image.jpg" value="' + d.id.to_s + '">  ' + d.id.to_s + '  </option>'.html_safe %>
+<%=raw  @str %>
+<% end %>
+
+</select>
+</div>
+
+
+<!-- Text input-->
+<div class='form-group'>
+  <%= f.label :Titel, :class => 'control-label' %> <i>(<span id="remaining_chars_meme_title">100</span> Zeichen verbleibend)</i>
+  <div class="controls">
+    <%= f.text_field :title, :onkeyup => 'showCharLen("meme_title", 100)', :maxlength => 100, :class => 'form-control' %>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class='form-group'>
+  <%= f.label :Beschreibung, :class => 'control-label' %> <i>(<span id="remaining_chars_meme_description">200</span> Zeichen verbleibend)</i>
+  <div class="controls">                     
+    <%= f.text_area :description, :onkeyup => 'showCharLen("meme_description", 200)', :maxlength => 200, :class => 'form-control' %>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class='form-group'>
+  <%= f.label :"Text oben", :class => 'control-label' %> <i>(<span id="remaining_chars_meme_textoben">120</span> Zeichen verbleibend)</i>
+  <div class="controls">                     
+    <%= f.text_area :textoben, :onkeyup => 'showCharLen("meme_textoben", 120)', :maxlength => 120, :class => 'form-control' %>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class='form-group'>
+  <%= f.label :"Text unten", :class => 'control-label' %>  <i>(<span id="remaining_chars_meme_textunten">120</span> Zeichen verbleibend)</i>
+  <div class="controls">                     
+   <%= f.text_area :textunten, :onkeyup => 'showCharLen("meme_textunten", 120)', :maxlength => 120, :class => 'form-control' %>
+  </div>
+</div>
+<!-- Button -->
+<div class='form-group'>
+  <div class="controls">
+    <%= f.submit "meme erstellen", :class => 'btn btn-primary' %>
+  </div>
+</div>
+
+</fieldset>
+
     
-    <% @meme.errors.full_messages.each do |msg| %>
-    <div class="error"><%= msg %></div>
-    <% end %>
+</div>
+</div>
+</div>
+
+
+
+
 
 <% end %>
-Template auswählen:
-<br />
-<% MemeTemplate.all.each do |d| %>
-   <span id="templateimg<%= d.id.to_s %>"><%=  link_to image_tag('/uploads/meme_template/template_img/' + d.id.to_s + '/thumb_image.jpg', alt: d.title , title: d.title), 'javascript:setTemplate(' + d.id.to_s + ')' %></span>
-<% end %>
-<%= form_for(@meme) do |f| %>
-<p>
-    <%= f.label :Titel %>
-    <%= f.text_field :title, :onkeyup => 'showCharLen("meme_title", 100)', :maxlength => 100 %>
-    <span id="remaining_chars_meme_title">100</span>
-</p>
-<p>
-    <%= f.label :Beschreibung %>
-    <%= f.text_area :description, :onkeyup => 'showCharLen("meme_description", 200)', :maxlength => 200 %>
-    <span id="remaining_chars_meme_description">200</span>
-</p>
-<p>
-    <%= f.label :"Text oben" %>
-    <%= f.text_area :textoben, :onkeyup => 'showCharLen("meme_textoben", 120)', :maxlength => 120 %>
-    <span id="remaining_chars_meme_textoben">120</span>
-</p>
-<p>
-    <%= f.label :"Text unten" %>
-    <%= f.text_area :textunten, :onkeyup => 'showCharLen("meme_textunten", 120)', :maxlength => 120 %>
-    <span id="remaining_chars_meme_textunten">120</span>
-</p>
-<%= f.hidden_field :template_id, :value => '' %>
-<p>
-    <%= f.submit "meme erstellen" %>
-</p>
-<% end %>
+
+
+
+
+
+
