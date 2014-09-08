@@ -2,6 +2,7 @@ require 'RMagick'
 include Magick
 require 'rmagick_text_util.rb'
 include RMagickTextUtil
+include Imagemagick_Modul
 
 class MemesController < ApplicationController
 
@@ -19,7 +20,7 @@ class MemesController < ApplicationController
             if (current_user != nil)
                 current_user.memes << @meme  
             end
-            MemesHelper.make_meme(meme_params[:textoben], meme_params[:textunten], meme_params[:template_id], @meme.id)
+            Imagemagick_Modul.make_meme(meme_params[:textoben], meme_params[:textunten], meme_params[:template_id], @meme.id)
             redirect_to meme_path(@meme.id.to_s)
         else                    
             render action: "new"
