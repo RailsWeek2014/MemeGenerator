@@ -35,6 +35,13 @@ class MemeTemplatesController < ApplicationController
 
     end
 
+    def delete
+        @meme_template = current_user.meme_templates.find(params[:id])
+        @meme_template.destroy
+        flash[:success] = "Template wurde gelöscht"
+        redirect_to list_meme_template_path
+    end
+
     def show
         @meme_template = MemeTemplate.find(params[:id])
     end

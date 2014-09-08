@@ -1,9 +1,9 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <%= link_to image_tag('/uploads/meme_template/template_img/' + meme_template.id.to_s + '/image.jpg'), meme_template_path(meme_template.id.to_s) %>
+      <%= link_to image_tag(meme_template.template_img.to_s), meme_template_path(meme_template.id.to_s) %>
       <div class="caption">
         <h3><%= meme_template.title %></h3>
-        <p><%= button_to "Löschen", "", :class => 'btn btn-danger' %></p>
+        <p><%= button_to "Löschen", delete_meme_template_path(meme_template.id.to_s) , :class => 'btn btn-danger', :method => :delete %></p>
         <p></p>
       </div>
     </div>
