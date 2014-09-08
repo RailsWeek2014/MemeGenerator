@@ -19,6 +19,14 @@ unregistriert
 <%= @meme.created_at %>
 </p>
 <p>
+<b>Wird gelistet:</b> 
+<% if @meme.isprivate == false %>
+<%= "Ja" %>
+<% else %>
+<%= "Nein" %>
+<% end %>
+</p>
+<p>
 <div align="center">
 <%= image_tag '/uploads/generated_memes/' + @meme.id.to_s + '.jpg' %>
 </div>

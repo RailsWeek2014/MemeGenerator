@@ -1,4 +1,3 @@
-<% if meme.isprivate != true %>
 <div class='col-md-12'>
 <div class='row'>
 <div class='col-md-12'>
@@ -13,6 +12,7 @@
         <% else %>
         unregistriert
         <% end %>
+        - erstellt: <%= meme.created_at %>
         </p>
       </div>
       <%= link_to image_tag('/uploads/generated_memes/' + meme.id.to_s + '.jpg'), meme_path(meme.id.to_s) %>
@@ -20,5 +20,3 @@
   </div>
   </div>
   </div>
-
-<% end %>

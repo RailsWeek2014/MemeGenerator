@@ -15,6 +15,14 @@ unregistriert
 <%= @meme_template.created_at %>
 </p>
 <p>
+<p>
+<b>privates Template:</b> 
+<% if @meme_template.isprivate == true %>
+<%= "Ja" %>
+<% else %>
+<%= "Nein" %>
+<% end %>
+</p>
 <div align="center">
 <%= image_tag @meme_template.template_img.to_s %>  </p>
 </div>
