@@ -2,7 +2,6 @@ class PagesController < ApplicationController
 
     def index
         @memes = Meme.all
-        
     end
 
 private

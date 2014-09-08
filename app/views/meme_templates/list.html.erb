@@ -5,5 +5,4 @@
 <%= "Du hast keine Templates erstellt" %>
 <% end %>
 <div class="row">
-<%= render @meme_templates %>
-</div>
+<%= render partial: "meme_templates/meme_template", collection: @meme_templates %></div>
