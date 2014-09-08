@@ -1,10 +1,21 @@
-<h1>Template anzeigen</h1>
-<b>Titel:</b>
-<%= @meme_template.title %> </p>
+<div class="page-header">
+  <h1><%= @meme_template.title %> </h1>
+</div>
 <p>
-<b>Bild:</b>
+<b>Erstellt von</b>
+<% if @meme_template.user_id != nil %>
+<% @User = User.find(@meme_template.user_id) %>
+<%= @User.username %>
+<% else %>
+unregistriert
+<% end %>
+</p>
+<p>
+<b>Erstellt am</b>
+<%= @meme_template.created_at %>
+</p>
+<p>
+<div align="center">
 <%= image_tag @meme_template.template_img.to_s %>  </p>
-<p>
-    <b>Erstellt am</b>
-    <%= @meme_template.created_at %>
-</p> <p>
+</div>
+</p>

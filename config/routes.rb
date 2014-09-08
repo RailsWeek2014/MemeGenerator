@@ -15,7 +15,10 @@ Rails.application.routes.draw do
 
   #post
 
+  delete "meme_templates/:id" => "meme_templates#delete", as: "delete_meme_template"
+
   post "meme_templates" => "meme_templates#create"
+
   post "memes" => "memes#create"
 
 end
