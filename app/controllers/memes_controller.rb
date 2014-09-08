@@ -40,6 +40,14 @@ class MemesController < ApplicationController
         @meme = Meme.find(params[:id])
     end
 
+    def delete
+        @meme = current_user.memes.find(params[:id])
+        @meme.destroy
+        File.delete('public/uploads/generated_memes/' + @meme.id.to_s + '.jpg')
+        flash[:success] = "Meme wurde gelöscht"
+        redirect_to list_meme_path
+    end
+
     private
     def meme_params
         params.require('meme')

@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   delete "meme_templates/:id" => "meme_templates#delete", as: "delete_meme_template"
 
+  delete "memes/:id" => "memes#delete", as: "delete_meme"
+
   post "meme_templates" => "meme_templates#create"
 
   post "memes" => "memes#create"
