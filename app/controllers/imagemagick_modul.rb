@@ -17,15 +17,15 @@ module Imagemagick_Modul
         # Prüft Text auf seine länge und passt entsprechen die übergebene Schriftgröße an
         case text_check.size
         when 101..120
-            create_meme_imagemagick(text_check, meme_id, 38, template_id, isup)
+            create_meme_imagemagick(text_check, meme_id, 25, template_id, isup)
         when 81..100
-            create_meme_imagemagick(text_check, meme_id, 35, template_id, isup)
+            create_meme_imagemagick(text_check, meme_id, 30, template_id, isup)
         when 61..80
             create_meme_imagemagick(text_check, meme_id, 35, template_id, isup)
         when 31..60
             create_meme_imagemagick(text_check, meme_id, 40, template_id, isup)
         when 11..30
-            create_meme_imagemagick(text_check, meme_id, 40, template_id, isup)
+            create_meme_imagemagick(text_check, meme_id, 50, template_id, isup)
         when 6..10
             create_meme_imagemagick(text_check, meme_id, 60, template_id, isup)
         when 1..5
@@ -39,9 +39,8 @@ module Imagemagick_Modul
         original_image = Image.read("public/uploads/meme_template/template_img/" +  template_id + "/image.jpg").first
 
         # x und y Auflösung werden ausgelesen und in ein string konvertiert
-        x_size = original_image.columns.to_s 
+        x_size = original_image.columns.to_s
         y_size = original_image.rows.to_s
-
 
 
         # output ordner erstellen, wenn nicht vorhanden
@@ -50,12 +49,12 @@ module Imagemagick_Modul
         end
 
         if isup
-            system("convert public/uploads/meme_template/template_img/" + template_id +  "/image.jpg -background transparent -font Helvetica-Bold -fill white -strokewidth 2  -stroke black -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity North caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg")
+            system("convert public/uploads/meme_template/template_img/" + template_id +  "/image.jpg -background transparent -font Impact -fill white -strokewidth 2  -stroke black -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity North caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg")
         #puts "convert public/uploads/meme_template/template_img/" + template_id +  "/image.jpg -background transparent -fill white -fill -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity North caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg"
 
     else
         # Text im unteren Bereich des Memes
-        system("convert public/uploads/generated_memes/" + meme_id.to_s + ".jpg -background transparent -font Helvetica-Bold -fill white -strokewidth 2  -stroke black -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity South caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg")
+        system("convert public/uploads/generated_memes/" + meme_id.to_s + ".jpg -background transparent -font Impact -fill white -strokewidth 2  -stroke black -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity South caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg")
     end
 
 end
