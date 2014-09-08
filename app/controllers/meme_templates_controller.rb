@@ -49,6 +49,6 @@ class MemeTemplatesController < ApplicationController
     private
     def meme_template_params
         params.require('meme_template')
-        .permit(:title, :template_img)
+        .permit(:title, :template_img, :isprivate)
     end
 end

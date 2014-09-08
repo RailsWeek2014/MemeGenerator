@@ -8,10 +8,10 @@ class MemesController < ApplicationController
 
     def new
         @meme = Meme.new
-        if MemeTemplate.all.count == 0
-            flash[:error] = "Fehler: Keine Templates verfügbar"
-            redirect_to index_path
-        end
+        #if MemeTemplate.all.count == 0
+        #    flash[:error] = "Fehler: Keine Templates verfügbar"
+        #    redirect_to index_path
+        #end
     end
 
     def create
@@ -51,6 +51,6 @@ class MemesController < ApplicationController
     private
     def meme_params
         params.require('meme')
-        .permit(:title, :description, :textoben, :textunten, :template_id)
+        .permit(:title, :description, :textoben, :textunten, :template_id, :isprivate)
     end
 end

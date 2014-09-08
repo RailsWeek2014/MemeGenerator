@@ -29,8 +29,15 @@
 <select class="image-picker show-html" name="meme[template_id]">
 
 <% MemeTemplate.all.each do |d| %>
+<% if d.isprivate != true %>
 <% @str = '<option data-img-src="/uploads/meme_template/template_img/' + d.id.to_s + '/thumb_image.jpg" value="' + d.id.to_s + '">  ' + d.id.to_s + '  </option>'.html_safe %>
 <%=raw  @str %>
+<% else %>
+<% if current_user != nil && d.user_id == current_user.id %>
+<% @str = '<option data-img-src="/uploads/meme_template/template_img/' + d.id.to_s + '/thumb_image.jpg" value="' + d.id.to_s + '">  ' + d.id.to_s + '  </option>'.html_safe %>
+<%=raw  @str %>
+<% end %>
+<% end %>
 <% end %>
 
 </select>
@@ -68,6 +75,16 @@
    <%= f.text_area :textunten, :onkeyup => 'showCharLen("meme_textunten", 120)', :maxlength => 120, :class => 'form-control' %>
   </div>
 </div>
+
+<!-- checkbox --> 
+<div class='form-group'>
+<div class="checkbox">
+    <label>
+          <%= f.check_box :isprivate, :class => 'form-control' %> <%= f.label :"privates Meme", :class => 'control-label' %>
+    </label>
+  </div>
+</div>
+
 <!-- Button -->
 <div class='form-group'>
   <div class="controls">
