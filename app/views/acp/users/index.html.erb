@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>Benutzer :</h1>
 </div>
-<% if User.all.count < 1 %>
-<%= "Nur du existierst." %>
+<% if User.count <= 1 %>
+<h1><%= "Nur du existierst." %></h1>
 <% end %>
-<%= render @index %>
+<%= render partial: "acp/users/user", collection: @user %></div>
