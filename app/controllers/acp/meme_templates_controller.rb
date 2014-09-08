@@ -1,5 +1,5 @@
 module Acp
-    class UsersController < ApplicationController
+    class MemeTemplatesController < ApplicationController
         def index
             render :text => "Test"
         end
