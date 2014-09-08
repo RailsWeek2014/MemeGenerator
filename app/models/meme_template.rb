@@ -4,4 +4,7 @@ class MemeTemplate < ActiveRecord::Base
     validates_integrity_of :template_img
     validates_processing_of :template_img
     validates :title, length: { in: 1..100 }
+
+    belongs_to :user
+
 end

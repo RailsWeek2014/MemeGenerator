@@ -1,19 +1,37 @@
 class MemeTemplatesController < ApplicationController
 
     def new
-        @meme_template = MemeTemplate.new
+        if (current_user != nil)
+            @meme_template = MemeTemplate.new
+        else
+            flash[:error] = "Nicht eingeloggt"
+            redirect_to index_path
+        end
     end
 
     def create
         @meme_template = MemeTemplate.new(meme_template_params)
-         if @meme_template.save 
-            redirect_to newmeme_path
+        if (current_user != nil)
+            if @meme_template.save 
+                flash[:success] = "Template wurde angelegt"
+                current_user.meme_templates << @meme_template  
+                redirect_to newtemplate_path
+            else
+                render action: "new"
+            end 
         else
-            render action: "new"
-        end 
+            flash[:error] = "Nicht eingeloggt"
+            redirect_to index_path
+        end
+        
     end
 
-    def delete
+    def list
+        if (current_user != nil)
+            @meme_templates = current_user.meme_templates
+        else
+            redirect_to index_path
+        end
 
     end
 

@@ -7,6 +7,10 @@ class MemesController < ApplicationController
 
     def new
         @meme = Meme.new
+        if MemeTemplate.all.count == 0
+            flash[:error] = "Fehler: Keine Templates verfügbar"
+            redirect_to index_path
+        end
     end
 
     def create

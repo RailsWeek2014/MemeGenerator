@@ -1,1 +1,9 @@
+<div class="page-header">
+  <h1>Meine Memes</h1>
+</div>
+<% if @memes.all.count == 0 %>
+<%= "Du hast keine Memes erstellt" %>
+<% end %>
+<div class="row">
 <%= render @memes %>
+</div>

@@ -2,8 +2,8 @@
     <% if user_signed_in? %>
   Logged in as <strong><%= current_user.username %></strong>.
   <ul class="nav nav-list">
-  <li><%= link_to 'Meine Memes', listmeme_path %></li>
-  <li><%= link_to 'Meine Templates', "" %></li>
+  <li><%= link_to 'Meine Memes', list_meme_path %></li>
+  <li><%= link_to 'Meine Templates', list_meme_template_path %></li>
   <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
   <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
   </ul>

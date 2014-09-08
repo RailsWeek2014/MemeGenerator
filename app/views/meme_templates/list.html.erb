@@ -1,0 +1,9 @@
+<div class="page-header">
+  <h1>Meine Templates</h1>
+</div>
+<% if @meme_templates.all.count == 0 %>
+<%= "Du hast keine Templates erstellt" %>
+<% end %>
+<div class="row">
+<%= render @meme_templates %>
+</div>
