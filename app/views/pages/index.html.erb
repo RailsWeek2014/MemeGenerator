@@ -1,9 +1,10 @@
 <div class="page-header">
   <h1>Startseite</h1>
 </div>
-<% if @memes.all.count == 0 %>
+<% if @memes.count == 0 %>
 <%= "Keine Einträge" %>
 <% end %>
 <div class="row">
 <%= render partial: "pages/meme", collection: @memes %>
+<%= paginate @memes %>
 </div>

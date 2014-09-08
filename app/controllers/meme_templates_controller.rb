@@ -4,7 +4,7 @@ class MemeTemplatesController < ApplicationController
         if (current_user != nil)
             @meme_template = MemeTemplate.new
         else
-            flash[:error] = "Nicht eingeloggt"
+            flash[:error] = "Einloggen um Template zu erstellen"
             redirect_to index_path
         end
     end
@@ -20,7 +20,7 @@ class MemeTemplatesController < ApplicationController
                 render action: "new"
             end 
         else
-            flash[:error] = "Nicht eingeloggt"
+            flash[:error] = "Einloggen um Template zu erstellen"
             redirect_to index_path
         end
         

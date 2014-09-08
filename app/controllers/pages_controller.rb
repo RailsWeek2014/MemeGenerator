@@ -1,13 +1,9 @@
 class PagesController < ApplicationController
 
     def index
-        @memes = Meme.all
+        #@memes = Meme.where("isprivate = 'false'").order('id').page(params[:page]).per(5)
+        @memes = Meme.order('id').page(params[:page]).per(5)
     end
 
-private
-    def pages_params
-        params.require('pages')
-        .permit(:start, :end)
-    end
 
 end
