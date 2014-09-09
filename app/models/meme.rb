@@ -1,7 +1,12 @@
 class Meme < ActiveRecord::Base
+
+    acts_as_commentable
+
+
     attr_accessor :textoben
     attr_accessor :textunten
     attr_accessor :template_id
+    attr_accessor :comment
     validates :title, length: { in: 1..100 }
     validates :description, length: { in: 1..200 }
     validates :textoben, length: { in: 1..120 }

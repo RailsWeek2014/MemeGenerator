@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+//= require bootstrap
 
 function showCharLen(id, maxchars) {
     var len = document.getElementById(id).value.length;
@@ -25,3 +26,4 @@ function showCharLen(id, maxchars) {
     $("#remaining_chars_" + id).empty();
     $("#remaining_chars_" + id).append(est); 
 }
+

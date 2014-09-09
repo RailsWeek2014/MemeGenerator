@@ -28,7 +28,7 @@ class MemeTemplatesController < ApplicationController
 
     def list
         if (current_user != nil)
-            @meme_templates = current_user.meme_templates
+            @meme_templates = current_user.meme_templates.order('created_at DESC').page(params[:page]).per(3)
         else
             redirect_to index_path
         end

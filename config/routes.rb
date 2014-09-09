@@ -7,6 +7,13 @@ end
   devise_for :users
   root to: "pages#index", as: "index"
 
+  post "/memes/add_comment" => "memes#add_comment", :as => "add_comment_to_memes"
+
+  resources :meme, only: [] do 
+    resources :comments, only: [:create]
+  end
+
+
   #get
 
   get "memes/new" => "memes#new", as: "newmeme"
@@ -20,11 +27,8 @@ end
   #post
 
   delete "meme_templates/:id" => "meme_templates#delete", as: "delete_meme_template"
-
   delete "memes/:id" => "memes#delete", as: "delete_meme"
-
   post "meme_templates" => "meme_templates#create"
-
   post "memes" => "memes#create"
 
 end

@@ -2,32 +2,49 @@
   <h1><%= @meme.title %> </h1>
 </div>
 <p>
-<b>Erstellt von</b>
-<% if @meme.user_id != nil %>
-<% @User = User.find(@meme.user_id) %>
-<%= @User.username %>
-<% else %>
-unregistriert
-<% end %>
+    <b>Erstellt von</b>
+    <% if @meme.user_id != nil %>
+    <% @User = User.find(@meme.user_id) %>
+    <%= @User.username %>
+    <% else %>
+    unregistriert
+    <% end %>
 </p>
 <p>
-<b>Beschreibung</b>
-<%= @meme.description %> 
+    <b>Beschreibung</b>
+    <%= @meme.description %> 
 </p>
 <p>
-<b>Erstellt am</b>
-<%= @meme.created_at %>
+    <b>Erstellt am</b>
+    <%= @meme.created_at %>
 </p>
 <p>
-<b>Wird gelistet:</b> 
-<% if @meme.isprivate == false %>
-<%= "Ja" %>
-<% else %>
-<%= "Nein" %>
-<% end %>
+    <b>Wird gelistet:</b> 
+    <% if @meme.isprivate == false %>
+    <%= "Ja" %>
+    <% else %>
+    <%= "Nein" %>
+    <% end %>
 </p>
 <p>
-<div align="center">
-<%= image_tag '/uploads/generated_memes/' + @meme.id.to_s + '.jpg' %>
+    <div align="center">
+        <%= image_tag '/uploads/generated_memes/' + @meme.id.to_s + '.jpg' %>
+    </div>
+</p>
+<hr>
+<p>
+<%= form_for [@meme, @comment], :html => { :class => "form-horizontal comment" } do |f| %>
+<div class='form-group'>
+  <%= f.label :Kommentar, :class => 'control-label' %>
+  <div class="controls">
+<%= f.text_area :comment, :class => 'form-control' %>
 </div>
+</div>
+<div class='form-group'>
+  <div class="controls">
+    <%= f.submit "kommentar hinzufügen", :class => 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>
+
 </p>

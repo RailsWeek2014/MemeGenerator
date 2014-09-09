@@ -44,3 +44,4 @@ gem 'rmagick', :require => 'RMagick'
 gem "twitter-bootstrap-rails"
 gem 'devise'
 gem 'kaminari'
+gem 'acts_as_commentable'

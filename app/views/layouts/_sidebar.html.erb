@@ -2,8 +2,19 @@
     <% if user_signed_in? %>
   Logged in as <strong><%= current_user.username %></strong>.
   <ul class="nav nav-list">
-  <li><%= link_to 'Meine Memes', list_meme_path %></li>
-  <li><%= link_to 'Meine Templates', list_meme_template_path %></li>
+
+  <li>
+  <%= link_to list_meme_path do %>
+    Meine Memes <span class="badge"><%= current_user.memes.all.count %></span>
+  <% end %>
+  </li>
+
+  <li>
+  <%= link_to list_meme_template_path do %>
+    Meine Templates <span class="badge"><%= current_user.meme_templates.all.count %></span>
+  <% end %>
+  </li>
+
   <li><%= link_to 'Account bearbeiten', edit_user_registration_path %></li>
   <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
   </ul>

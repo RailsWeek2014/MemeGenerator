@@ -28,7 +28,7 @@ class MemesController < ApplicationController
 
     def list
         if (current_user != nil)
-            @memes = current_user.memes
+            @memes = current_user.memes.order('created_at DESC').page(params[:page]).per(3)
         else
             redirect_to index_path
         end
@@ -37,6 +37,7 @@ class MemesController < ApplicationController
 
     def show
         @meme = Meme.find(params[:id])
+        @comment = Comment.new(commentable:@meme)
     end
 
     def delete
@@ -47,9 +48,11 @@ class MemesController < ApplicationController
         redirect_to list_meme_path
     end
 
+
+
     private
     def meme_params
         params.require('meme')
-        .permit(:title, :description, :textoben, :textunten, :template_id, :isprivate)
+        .permit(:title, :description, :textoben, :textunten, :template_id, :isprivate, :comment)
     end
 end
