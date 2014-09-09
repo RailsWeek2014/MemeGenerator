@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 namespace :acp do
-  resources :users, only: [:index, :edit, :destroy]
+  resources :users, only: [:index, :edit, :update, :destroy]
   resources :memes, only: [:index, :destroy]
   resources :meme_templates, only: [:index, :destroy]
 end

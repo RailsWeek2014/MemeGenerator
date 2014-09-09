@@ -17,6 +17,6 @@ MemeGenerator
 - Integration von Twitter/Facebook
 
 - Adminbereich
-    - Benutzer verwalten (löschen, hinzufügen, bearbeiten)
+    - Benutzer verwalten (löschen, bearbeiten)
     - Memes verwalten
     - Vorlagen verwalten

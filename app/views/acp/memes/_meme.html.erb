@@ -1,0 +1,10 @@
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= link_to image_tag('/uploads/generated_memes/' + meme.id.to_s + '.jpg'), meme_path(meme.id.to_s) %>
+      <div class="caption">
+        <h3><%= meme.title %></h3>
+        <p><%= button_to "Löschen", acp_meme_path(meme.id.to_s) , :class => 'btn btn-danger', :method => :delete %></p>
+        <p></p>
+      </div>
+    </div>
+  </div>
