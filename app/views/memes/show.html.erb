@@ -32,6 +32,14 @@
     </div>
 </p>
 <hr>
+<table class="table table-striped">
+<tr>
+    <th>Datum</th>
+    <th>Nutzer</th>
+    <th>Kommentar</th>
+</tr>
+<%= render partial: "memes/comment", collection: Comment.all.where(commentable_id: @meme.id.to_s) %>
+</table>
 <p>
 <%= form_for [@meme, @comment], :html => { :class => "form-horizontal comment" } do |f| %>
 <div class='form-group'>

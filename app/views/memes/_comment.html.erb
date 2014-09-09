@@ -1,0 +1,8 @@
+<tr>
+    <th><%= comment.created_at %></th>
+    <th>
+    <% @User = User.find(comment.user_id) %>
+    <%= @User.username %>
+    </th>
+    <th><%= comment.comment %></th>
+</tr>
