@@ -49,12 +49,12 @@ module Imagemagick_Modul
         end
 
         if isup
-            system("convert public/uploads/meme_template/template_img/" + template_id +  "/image.jpg -background transparent -font Impact -fill white -strokewidth 2  -stroke black -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity North caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg")
+            system("convert public/uploads/meme_template/template_img/" + template_id +  "/image.jpg -background transparent -font public/impact.ttf -fill white -strokewidth 2  -stroke black -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity North caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg")
         #puts "convert public/uploads/meme_template/template_img/" + template_id +  "/image.jpg -background transparent -fill white -fill -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity North caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg"
 
     else
         # Text im unteren Bereich des Memes
-        system("convert public/uploads/generated_memes/" + meme_id.to_s + ".jpg -background transparent -font Impact -fill white -strokewidth 2  -stroke black -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity South caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg")
+        system("convert public/uploads/generated_memes/" + meme_id.to_s + ".jpg -background transparent -font public/impact.ttf -fill white -strokewidth 2  -stroke black -pointsize " + font_size.to_s + " -size " + x_size + "x" + y_size + " -gravity South caption:'" + text_check + "' -composite public/uploads/generated_memes/" + meme_id.to_s + ".jpg")
     end
 
 end
