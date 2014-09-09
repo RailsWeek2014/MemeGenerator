@@ -1,0 +1,7 @@
+<div class="page-header">
+  <h1>Memes :</h1>
+</div>
+<% if Meme.count < 1 %>
+<h1><%= "Es existieren keine Memes" %></h1>
+<% end %>
+<%= render partial: "acp/memes/meme", collection: Meme.all %>

@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>Alle Templates</h1>
+</div>
+<% if MemeTemplate.all.count == 0 %>
+<%= "Du hast keine Templates erstellt" %>
+<% end %>
+<div class="row">
+<%= render partial: "acp/meme_templates/meme_template", collection: MemeTemplate.all %></div>

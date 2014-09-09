@@ -1,11 +1,20 @@
 module Acp
     class MemeTemplatesController < ApplicationController
         def index
-            render :text => "Test"
+          if (current_user.isadmin)
+            @meme = MemeTemplate.all
+        else
+            flash[:error] = "Sie sind kein Administrator."
+            redirect_to index_path
         end
-
-        def destory
-        end
-        
     end
+
+    def destroy
+        @meme_template = MemeTemplate.all.find(params[:id])
+        @meme_template.destroy
+        flash[:success] = "Template wurde gelöscht"
+        redirect_to acp_meme_templates_path
+    end
+
+end
 end
