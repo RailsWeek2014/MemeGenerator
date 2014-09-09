@@ -9,6 +9,7 @@
       <tr><%= user.email %></tr>
       <tr><%= user.username %></tr>
       <tr><%= link_to "destroy", acp_user_path(user), method: :delete, class:"btn btn-danger", confirm: true%></tr>
+      <tr><%= link_to "edit", edit_acp_user_path(user), method: :get, class:"btn btn-danger", confirm: true%></tr>
     </table>
 
   </div>
