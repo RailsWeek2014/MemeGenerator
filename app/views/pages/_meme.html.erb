@@ -3,7 +3,22 @@
 <div class='col-md-12'>
     <div class="thumbnail">
       <div class="caption">
-        <h3><%= meme.title %></h3>
+        <h3><%= meme.title %>
+        <% if current_user != nil %>
+        <% if current_user.likes?(meme) %>
+        <%= link_to meme_unlike_path(meme), :class => "btn btn-primary btn-sm" do %>
+        <i class="glyphicon glyphicon-thumbs-up"></i>Dislike
+        <span class="badge"><%= meme.likers(User).count %></span>
+        <% end %>
+        <% else %>
+        <%= link_to meme_like_path(meme), :class => "btn btn-primary btn-sm" do  %>
+        <i class="glyphicon glyphicon-thumbs-up"></i>Like
+        <span class="badge"><%= meme.likers(User).count %></span>
+        <% end %>
+        <% end %>
+        <% end %>
+
+        </h3>
         <hr>
         <p>von:
         <% if meme.user_id != nil %>
