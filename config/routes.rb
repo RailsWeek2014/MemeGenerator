@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
 namespace :acp do
   resources :users, only: [:index, :edit, :update, :destroy]
   resources :memes, only: [:index, :destroy]
@@ -6,13 +7,13 @@ namespace :acp do
 end
   devise_for :users
   root to: "pages#index", as: "index"
-
   post "/memes/add_comment" => "memes#add_comment", :as => "add_comment_to_memes"
 
   resources :meme, only: [] do 
     resources :comments, only: [:create]
+    get 'like' => "like#like"
+    get 'unlike' => "like#unlike"
   end
-
 
   #get
 
@@ -25,7 +26,7 @@ end
   get "meme_templates/:id" => "meme_templates#show", as: "meme_template"
 
   #post
-
+  #post "/like/like" => "like#like", as: "like_meme"
   delete "meme_templates/:id" => "meme_templates#delete", as: "delete_meme_template"
   delete "memes/:id" => "memes#delete", as: "delete_meme"
   post "meme_templates" => "meme_templates#create"

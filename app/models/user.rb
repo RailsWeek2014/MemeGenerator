@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   #attr_accessor :username
 
+  acts_as_liker
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
