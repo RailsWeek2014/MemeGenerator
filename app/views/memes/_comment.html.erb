@@ -1,8 +1,7 @@
-<tr>
-    <th><%= comment.created_at %></th>
-    <th>
-    <% @User = User.find(comment.user_id) %>
-    <%= @User.username %>
-    </th>
-    <th><%= comment.comment %></th>
-</tr>
+<fieldset class="well fieldset-comment">
+    <legend class="legend-comment">
+        <% @User = User.find(comment.user_id) %>
+        <%= @User.username %> - <%= comment.created_at %>
+    </legend>
+        <%= comment.comment %>
+</fieldset>

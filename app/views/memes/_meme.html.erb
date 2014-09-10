@@ -4,6 +4,12 @@
       <div class="caption">
         <h3><%= meme.title %></h3>
         <p>Erstellt: <%= meme.created_at %></p>
+        <p>Wird gelistet:
+        <% if meme.isprivate == false %>
+        Ja
+        <% else %>
+        Nein
+        <% end %></p>
         <p><%= button_to "Löschen", delete_meme_path(meme.id.to_s) , :class => 'btn btn-danger', :method => :delete %></p>
         <p></p>
       </div>

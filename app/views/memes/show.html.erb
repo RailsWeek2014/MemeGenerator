@@ -32,14 +32,10 @@
     </div>
 </p>
 <hr>
-<table class="table table-striped">
-<tr>
-    <th>Datum</th>
-    <th>Nutzer</th>
-    <th>Kommentar</th>
-</tr>
-<%= render partial: "memes/comment", collection: Comment.all.where(commentable_id: @meme.id.to_s) %>
-</table>
+<form>
+<%= render partial: "memes/comment", collection: Comment.all.where(commentable_id: @meme.id.to_s).page(params[:page]).per(6) %>
+</form>
+<%= paginate Comment.all.where(commentable_id: @meme.id.to_s).page(params[:page]).per(6) %>
 <p>
 <%= form_for [@meme, @comment], :html => { :class => "form-horizontal comment" } do |f| %>
 <div class='form-group'>
@@ -50,7 +46,11 @@
 </div>
 <div class='form-group'>
   <div class="controls">
+  <% if current_user == nil %>
+    <%= f.submit "Einloggen zum kommentieren", :class => 'btn btn-primary', :disabled => 'disabled' %>
+  <% else %>
     <%= f.submit "kommentar hinzufügen", :class => 'btn btn-primary' %>
+  <% end %>
   </div>
 </div>
 <% end %>
