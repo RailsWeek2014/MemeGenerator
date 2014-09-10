@@ -12,7 +12,7 @@ MemeGenerator
     - eigene Vorlagen anlegen / löschen
     - festlegen ob privat oder öffentlich (Vorlagen und memes)
     - Kommentare
-    - Upvotes / Downvotes
+    - Gefällt mir für Memes durch User
 
 - Integration von Twitter/Facebook
 
