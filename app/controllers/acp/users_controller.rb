@@ -1,12 +1,18 @@
 module Acp
   class UsersController < ApplicationController
     def index
-      if (current_user.isadmin)
-        @user = User.all
+      if current_user != nil
+        if (current_user.isadmin)
+          @users = User.all
+        else
+          flash[:error] = "Sie sind kein Administrator."
+          redirect_to index_path
+        end
       else
-        flash[:error] = "Sie sind kein Administrator."
-        redirect_to index_path
+          flash[:error] = "Nicht eingeloggt."
+          redirect_to index_path
       end
+
     end
 
     def edit
@@ -17,19 +23,25 @@ module Acp
      @user = User.find(params[:id])
      params[:user].delete :password if params[:user][:password].empty?
      if @user.update(user_params)
-     redirect_to acp_users_path, :notice => "User updated successfully."
-   else
-     render :edit
-   end
- end
+       redirect_to acp_users_path, :notice => "User updated successfully."
+     else
+       render :edit
+     end
+    end
 
 
    def destroy
-    @users = User.find(params[:id])
-    @users.destroy
-    redirect_to acp_users_path
-    flash[:success] = "Benutzer wurde gelöscht"
-  end
+    if (current_user.id == params[:id])
+      redirect_to acp_users_path
+      flash[:error] = "Du kannst dich nicht selber löschen"
+    else
+      @user = User.find(params[:id])
+      @user.destroy
+      redirect_to acp_users_path
+      flash[:success] = "Benutzer wurde gelöscht"
+    end
+
+   end
 
   private
   def user_params

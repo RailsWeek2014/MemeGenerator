@@ -1,19 +1,9 @@
-
-
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Panel heading</div>
-  <div class="panel-body">
-    <!-- Table -->
-    <table class="table">
-      <tr><%= user.email %></tr>
-      <tr><%= user.username %></tr>
-      <tr><%= link_to "destroy", acp_user_path(user), method: :delete, class:"btn btn-danger", confirm: true%></tr>
-      <tr><%= link_to "edit", edit_acp_user_path(user), method: :get, class:"btn btn-danger", confirm: true%></tr>
-    </table>
-
-  </div>
-
-
-
-</div>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= user.email %></td>
+      <td><%= user.isadmin %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.last_sign_in_at %></td>
+      <td><%= link_to "destroy", acp_user_path(user), method: :delete, class:"btn btn-danger" %></td>
+      <td><%= link_to "edit", edit_acp_user_path(user), class:"btn btn-primary" %></td>
+    </tr>

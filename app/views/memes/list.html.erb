@@ -2,7 +2,9 @@
   <h1>Meine Memes</h1>
 </div>
 <div align="right">
-<a href="<%= newmeme_path %>" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-plus-sign"></span> Neues Meme</a>
+<%= link_to newmeme_path, :class => "btn btn-primary btn-lg" do %>
+  <i class="glyphicon glyphicon-plus-sign"></i> Neues Meme
+<% end %>
 </div>
 <br />
 <% if @memes.all.count == 0 %>

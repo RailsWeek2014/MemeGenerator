@@ -2,7 +2,9 @@
   <h1>Meine Templates</h1>
 </div>
 <div align="right">
-<a href="<%= newtemplate_path %>" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-plus-sign"></span> Neues Template</a>
+<%= link_to newtemplate_path, :class => "btn btn-primary btn-lg" do %>
+  <i class="glyphicon glyphicon-plus-sign"></i> Neues Template
+<% end %>
 </div>
 <br />
 <% if @meme_templates.all.count == 0 %>

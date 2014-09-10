@@ -4,9 +4,9 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require_tree .
-*/
+ */
 
-ul.thumbnails.image_picker_selector {
+ ul.thumbnails.image_picker_selector {
   overflow: auto;
   list-style-image: none;
   list-style-position: outside;
@@ -14,51 +14,61 @@ ul.thumbnails.image_picker_selector {
   padding: 0px;
   margin: 0px; 
 }
-  
+
 ul.thumbnails.image_picker_selector ul {
-    overflow: auto;
-    list-style-image: none;
-    list-style-position: outside;
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px; 
+  overflow: auto;
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px; 
 }
-  
+
 ul.thumbnails.image_picker_selector li.group_title {
-    float: none; 
+  float: none; 
 }
-  
+
 ul.thumbnails.image_picker_selector li {
-    margin: 0px 12px 12px 0px;
-    float: left; 
+  margin: 0px 12px 12px 0px;
+  float: left; 
 }
 
 ul.thumbnails.image_picker_selector li .thumbnail {
-      padding: 6px;
-      border: 1px solid #dddddd;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none; 
+  padding: 6px;
+  border: 1px solid #dddddd;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; 
 }
 
 ul.thumbnails.image_picker_selector li .thumbnail img {
-        -webkit-user-drag: none; 
+  -webkit-user-drag: none; 
 }
-  
+
 ul.thumbnails.image_picker_selector li .thumbnail.selected {
-      background: #0088cc; 
+  background: #0088cc; 
 
 }
 
 .legend-comment {
-    border-style: none;
-    border-width: 0;
-    font-size: 14px;
-    line-height: 20px;
-    margin-bottom: 0;
+  border-style: none;
+  border-width: 0;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 0;
 }
 .fieldset-comment {
-    border: 2px groove threedface #444;
-    -webkit-box-shadow:  0px 0px 0px 0px #000;
-            box-shadow:  0px 0px 0px 0px #000;
+  border: 2px groove threedface #444;
+  -webkit-box-shadow:  0px 0px 0px 0px #000;
+  box-shadow:  0px 0px 0px 0px #000;
+}
+
+/* Override Bootstrap 3 font locations */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../assets/glyphicons-halflings-regular.eot');
+  src: url('../assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+  url('../assets/glyphicons-halflings-regular.woff') format('woff'),
+  url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
+  url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }

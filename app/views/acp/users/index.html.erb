@@ -1,7 +1,22 @@
+<%= render 'layouts/navbar_admin', :active => "users" %>
 <div class="page-header">
-  <h1>Benutzer :</h1>
+  <h1>Benutzerverwaltung</h1>
 </div>
 <% if User.count <= 1 %>
-<h1><%= "Nur du existierst." %></h1>
+<div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  Nur du existierst.
+</div>
 <% end %>
-<%= render partial: "acp/users/user", collection: @user %>
+<table class="table table-striped">
+    <tr>
+      <td><b>email</b></td>
+      <td><b>username</b></td>
+      <td><b>admin</b></td>
+      <td><b>Registrierungsdatum</b></td>
+      <td><b>Zuletzt eingeloggt</b></td>
+      <td><b>löschen</b></td>
+      <td><b>bearbeiten</b></td>
+    </tr>
+  <%= render partial: "acp/users/user", collection: @users %>
+</table>

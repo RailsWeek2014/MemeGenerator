@@ -10,7 +10,11 @@
         <% else %>
         Ja
         <% end %></p>
-        <p><%= button_to "Löschen", delete_meme_template_path(meme_template.id.to_s) , :class => 'btn btn-danger', :method => :delete %></p>
+        <p>
+        <%= link_to delete_meme_template_path(meme_template.id.to_s), :class => 'btn btn-danger', :method => :delete  do %>
+          <i class="glyphicon glyphicon-trash"></i> Löschen
+        <% end %>
+        </p>
         <p></p>
       </div>
     </div>

@@ -1,0 +1,17 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li
+  <% if active == "users" %>
+  <%= raw('class="active"') %>
+  <% end %> >
+  <%= link_to "Benutzerverwaltung", acp_users_path %></li>
+  <li
+  <% if active == "memes" %>
+  <%= raw('class="active"') %>
+  <% end %> >
+  <%= link_to "Memeverwaltung", acp_memes_path %></li>
+  <li
+  <% if active == "templates" %>
+  <%= raw('class="active"') %>
+  <% end %> >
+  <%= link_to "Templateverwaltung", acp_meme_templates_path %></li>
+</ul>

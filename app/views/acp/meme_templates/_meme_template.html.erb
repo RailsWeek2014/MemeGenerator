@@ -1,9 +1,29 @@
-  <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <%= link_to image_tag(meme_template.template_img.to_s), meme_template_path(meme_template.id.to_s) %>
       <div class="caption">
         <h3><%= meme_template.title %></h3>
-        <p><%= button_to "Löschen", acp_meme_template_path(meme_template.id.to_s) , :class => 'btn btn-danger', :method => :delete %></p>
+        <p>Erstellt: <%= meme_template.created_at %></p>
+        <p>Privates Template:
+        <% if meme_template.isprivate == false %>
+        Nein
+        <% else %>
+        Ja
+        <% end %></p>
+        <p>
+        <p>
+        <b>Erstellt von</b>
+        <% if meme_template.user_id != nil %>
+        <% @User = User.find(meme_template.user_id) %>
+        <%= @User.username %>
+        <% else %>
+        unregistriert
+        <% end %>
+        </p>
+        <%= link_to acp_meme_template_path(meme_template.id.to_s), :class => 'btn btn-danger', :method => :delete  do %>
+          <i class="glyphicon glyphicon-trash"></i> Löschen
+        <% end %>
+        </p>
         <p></p>
       </div>
     </div>

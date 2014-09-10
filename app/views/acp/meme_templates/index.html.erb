@@ -1,8 +1,10 @@
+<%= render 'layouts/navbar_admin', :active => "templates" %>
 <div class="page-header">
   <h1>Alle Templates</h1>
 </div>
-<% if MemeTemplate.all.count == 0 %>
-<%= "Du hast keine Templates erstellt" %>
+<% if @meme_templates.count == 0 %>
+<%= "Es sind keine Templates vorhanden" %>
 <% end %>
 <div class="row">
-<%= render partial: "acp/meme_templates/meme_template", collection: MemeTemplate.all %></div>
+<%= render partial: "acp/meme_templates/meme_template", collection: @meme_templates %></div>
+<%= paginate @meme_templates %>

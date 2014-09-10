@@ -1,7 +1,10 @@
+<%= render 'layouts/navbar_admin', :active => "memes" %>
 <div class="page-header">
-  <h1>Memes :</h1>
+  <h1>Alle Memes</h1>
 </div>
-<% if Meme.count < 1 %>
-<h1><%= "Es existieren keine Memes" %></h1>
+<% if @memes.count == 0 %>
+<%= "Es sind keine Memes vorhanden" %>
 <% end %>
-<%= render partial: "acp/memes/meme", collection: Meme.all %>
+<div class="row">
+<%= render partial: "acp/memes/meme", collection: @memes %></div>
+<%= paginate @memes %>
