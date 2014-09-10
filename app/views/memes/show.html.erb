@@ -2,13 +2,13 @@
   <h1><%= @meme.title %> 
       <% if current_user != nil %>
         <% if current_user.likes?(@meme) %>
-        <%= link_to meme_unlike_path(@meme), :class => "btn btn-primary btn-sm" do %>
-        <i class="glyphicon glyphicon-thumbs-up"></i>Dislike
+        <%= link_to meme_unlike_path(@meme), :class => "btn btn-warning btn-sm" do %>
+        <i class="glyphicon glyphicon-thumbs-down"></i> Dislike
         <span class="badge"><%= @meme.likers(User).count %></span>
         <% end %>
         <% else %>
         <%= link_to meme_like_path(@meme), :class => "btn btn-primary btn-sm" do  %>
-        <i class="glyphicon glyphicon-thumbs-up"></i>Like
+        <i class="glyphicon glyphicon-thumbs-up"></i> Like
         <span class="badge"><%= @meme.likers(User).count %></span>
         <% end %>
         <% end %>
