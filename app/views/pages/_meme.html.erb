@@ -17,7 +17,6 @@
         <% end %>
         <% end %>
         <% end %>
-
         </h3>
         <hr>
         <p>von:
@@ -28,6 +27,8 @@
         unregistriert
         <% end %>
         - erstellt: <%= meme.created_at %>
+        <br />
+        Kommentare: <%= Comment.all.where(commentable_id: meme.id.to_s).count %>
         </p>
       </div>
       <%= link_to image_tag('/uploads/generated_memes/' + meme.id.to_s + '.jpg'), meme_path(meme.id.to_s) %>

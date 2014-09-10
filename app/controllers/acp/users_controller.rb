@@ -31,7 +31,7 @@ module Acp
 
 
    def destroy
-    if (current_user.id == params[:id])
+    if (current_user.id == params[:id].to_i)
       redirect_to acp_users_path
       flash[:error] = "Du kannst dich nicht selber löschen"
     else
