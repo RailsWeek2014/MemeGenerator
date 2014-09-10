@@ -53,6 +53,6 @@ class MemesController < ApplicationController
     private
     def meme_params
         params.require('meme')
-        .permit(:title, :description, :textoben, :textunten, :template_id, :isprivate, :comment)
+        .permit(:title, :description, :textoben, :textunten, :template_id, :isprivate, :comment, :tag_list)
     end
 end

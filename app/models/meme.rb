@@ -3,6 +3,7 @@ class Meme < ActiveRecord::Base
     acts_as_commentable
     acts_as_likeable
     acts_as_taggable
+    acts_as_taggable_on :tags
 
     attr_accessor :textoben
     attr_accessor :textunten

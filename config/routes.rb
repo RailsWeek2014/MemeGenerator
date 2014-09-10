@@ -16,7 +16,7 @@ end
   end
 
   #get
-  get "tags/:tag" => "pages#index", as: :tag
+  get "tags/:tag" => "pages#index"
   get "memes/new" => "memes#new", as: "newmeme"
   get "meme_templates/new" => "meme_templates#new", as: "newtemplate"
   get "memes/list" => "memes#list", as: "list_meme"
