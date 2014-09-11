@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
         @meme = Meme.find params[:meme_id]
         if current_user != nil
 
-            if comment_params[:comment].length > 9 && comment_params[:comment].length < 200
+            if comment_params[:comment].length > 9 && comment_params[:comment].length < 201
                 @comment = Comment.new(comment_params)
                 @comment.commentable = @meme
                 @comment.user = current_user

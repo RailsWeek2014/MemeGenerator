@@ -43,7 +43,12 @@ class MemeTemplatesController < ApplicationController
     end
 
     def show
-        @meme_template = MemeTemplate.find(params[:id])
+        if MemeTemplate.exists?(:id => params[:id])
+            @meme_template = MemeTemplate.find(params[:id])
+        else
+            flash[:error] = "Vorlage existiert nicht"
+            redirect_to index_path
+        end
     end
 
     private

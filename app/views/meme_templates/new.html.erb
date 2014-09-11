@@ -24,9 +24,9 @@
       <fieldset>
         <!-- Text input-->
         <div class='form-group'>
-          <%= f.label :title, "Titel", :class => 'control-label' %> <i>(<span id="remaining_chars_meme_template_title">100</span> Zeichen verbleibend)</i>
+          <%= f.label :title, "Titel", :class => 'control-label' %> <i>(<span id="remaining_chars_meme_template_title">50</span> Zeichen verbleibend)</i>
           <div class="controls">
-            <%= f.text_field :title, :onkeyup => 'showCharLen("meme_template_title", 100)', :maxlength => 100, :class => 'form-control' %>
+            <%= f.text_field :title, :onkeyup => 'showCharLen("meme_template_title", 50)', :maxlength => 50, :class => 'form-control' %>
           </div>
         </div>
 

@@ -3,7 +3,7 @@
 <% end %>
 <div class="page-header">
   <h1>
-  <%= @meme.title %> 
+  <p style= "word-wrap: break-word;"><%= @meme.title %>
     <% if current_user != nil %>
       <% if current_user.likes?(@meme) %>
         <%= link_to meme_unlike_path(@meme), :class => "btn btn-warning btn-sm" do %>
@@ -18,12 +18,13 @@
     <% end %>
     <% end %>
   </h1>
+  </p>
 </div>
 <p>
   <b>Erstellt von</b>
   <%= get_username_from_id(@meme) %>
 </p>
-<p>
+<p style= "word-wrap: break-word;">
   <b>Beschreibung</b>
   <%= @meme.description %> 
 </p>
@@ -61,9 +62,13 @@
 <p>
   <%= form_for [@meme, @comment], :html => { :class => "form-horizontal comment" } do |f| %>
   <div class='form-group'>
-    <%= f.label :comment, "Kommentar", :class => 'control-label' %>
+    <%= f.label :comment, "Kommentar", :class => 'control-label' %> <i>(<span id="remaining_chars_comment_comment">200</span> Zeichen verbleibend)</i>
     <div class="controls">
-      <%= f.text_area :comment, :class => 'form-control' %>
+      <% if current_user == nil %>
+      <%= f.text_area :comment, :class => 'form-control', :onkeyup => 'showCharLen("comment_comment", 200)', :maxlength => 200, :disabled => 'disabled'  %>  
+      <% else %>
+      <%= f.text_area :comment, :class => 'form-control', :onkeyup => 'showCharLen("comment_comment", 200)', :maxlength => 200 %>  
+      <% end %>
     </div>
   </div>
   <div class='form-group'>
