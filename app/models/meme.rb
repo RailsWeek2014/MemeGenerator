@@ -13,6 +13,7 @@ class Meme < ActiveRecord::Base
     validates :textoben, length: { in: 1..120 }
     validates :textunten, length: { in: 1..120 }
     validates :template_id, length: { in: 1..5 }
+    validates :tag_list, length: { in: 1..200 }
 
     belongs_to :user
 
