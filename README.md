@@ -23,7 +23,7 @@ MemeGenerator
     - Vorlagen verwalten ✓
 
 
-Benutze Gems :
+- Benutze Gems :
     - better_errors // Bessere Fehlerausgabe
     - binding_of_caller // Konsole in der Fehlerausgabe
     - carrierwave // Für den Dateiupload
@@ -36,7 +36,7 @@ Benutze Gems :
     - acts-as-taggable-on // Tag Funktion für Memes
 
 
-Quellen :
+- Quellen :
     - http://www.imagemagick.org/Usage/text/
     - http://www.imagemagick.org/RMagick/doc/imageattrs.html
     - http://getbootstrap.com/css/
