@@ -1,33 +1,55 @@
 <% if @user.errors.any? %>
-<ul>
-    <% @user.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title">Es traten <%= @user.errors.count %> Fehler auf:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
-    </ul>
-    <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 
     <%= form_for([:acp, @user]) do |f| %>
-    <p>
+    <div class='form-group'>
         <%= f.label :email %>
-        <%= f.text_field :email %>
-    </p>
-    <p>
+    <div class="controls">
+        <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+    </div>
+
+    <div class='form-group'>
         <%= f.label :username %>
-        <%= f.text_field :username %>
-    </p>
-    <p>
+    <div class="controls">
+        <%= f.text_field :username, :class => 'form-control' %>
+    </div>
+    </div>
+
+    <div class='form-group'>
         <%= f.label :password %>
-        <%= f.password_field :password %>
-    </p>
-        <p>
+    <div class="controls">
+        <%= f.password_field :password, :class => 'form-control' %>
+    </div>
+    </div>
+
+    <div class='form-group'>
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
-    </p>
-        <p>
+    <div class="controls">
+        <%= f.password_field :password_confirmation, :class => 'form-control' %>
+    </div>
+    </div>
+
+    <div class='form-group'>
         <%= f.label 'Ist Administrator : ' %>
-        <%= f.check_box :isadmin %>
-        </p>
-    <p>
-        <%= f.submit %>
-    </p>
+    <div class="controls">
+        <%= f.check_box :isadmin, :class => 'form-control' %>
+    </div>
+    </div>
+
+    <div class='form-group'>
+        <%= f.submit 'Absenden', :class => 'btn btn-primary' %>
+    </div>
     <% end %>

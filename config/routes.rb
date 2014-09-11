@@ -16,7 +16,7 @@ end
   end
 
   #get
-  get "tags/:tag" => "pages#index"
+  get "tags/:tag" => "pages#index", as: "show_tag"
   get "memes/new" => "memes#new", as: "newmeme"
   get "meme_templates/new" => "meme_templates#new", as: "newtemplate"
   get "memes/list" => "memes#list", as: "list_meme"
@@ -27,6 +27,10 @@ end
 
   #post
   #post "/like/like" => "like#like", as: "like_meme"
+
+  post "/search" => "pages#search", as: "search_tag", as: "search_tag"
+
+
   delete "meme_templates/:id" => "meme_templates#delete", as: "delete_meme_template"
   delete "memes/:id" => "memes#delete", as: "delete_meme"
   post "meme_templates" => "meme_templates#create"

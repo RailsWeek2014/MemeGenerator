@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h1>Suche nach Tag: <%= @search_tag.to_s %></h1>
+</div>
+<% if @memes.count == 0 %>
+<%= "Keine Einträge" %>
+<% end %>
+<div class="row">
+<%= render partial: "pages/meme", collection: @memes %>
+</div>
+<%= paginate @memes %>

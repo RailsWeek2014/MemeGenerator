@@ -1,3 +1,6 @@
+<% content_for :title do %>
+ <%= @meme.title %>
+<% end %>
 <div class="page-header">
   <h1><%= @meme.title %> 
       <% if current_user != nil %>
@@ -41,6 +44,17 @@
     <% end %>
 </p>
 <p>
+    <b>Tags:</b>
+    <% @meme.tag_list.each do |var| %>
+      <%= link_to show_tag_path(var), :class => "btn btn-default btn-xs" do %>
+        <% var %>
+      <% end %>
+    <% end %>
+</p>
+<p>
+<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<iframe src="//www.facebook.com/plugins/like.php?href=<%=u request.original_url %>%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
     <div align="center">
         <%= image_tag '/uploads/generated_memes/' + @meme.id.to_s + '.jpg' %>
     </div>
