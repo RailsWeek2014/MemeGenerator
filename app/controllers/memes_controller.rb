@@ -1,7 +1,5 @@
 require 'RMagick'
 include Magick
-require 'rmagick_text_util.rb'
-include RMagickTextUtil
 
 class MemesController < ApplicationController
 
