@@ -20,7 +20,7 @@
                 </h3>
                 <hr>
                 <p>von:
-                    <%= get_username_from_id(meme) %> - erstellt: <%= meme.created_at %>
+                    <%= get_username_from_id(meme.user_id) %> - erstellt: <%= meme.created_at %>
                     <br />
                     Kommentare: <%= Comment.all.where(commentable_id: meme.id.to_s).count %>
                 </p>

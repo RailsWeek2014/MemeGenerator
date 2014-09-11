@@ -3,12 +3,12 @@ include Magick
 
 module Imagemagick_Modul
 
-    def self.make_meme (textoben, textunten, template_id, meme_id)
+    def self.make_meme (text_up, text_down, template_id, meme_id)
 
         # Liest Text für oben und unten aus und übergibt ihn an die text_size_check methode
 
-        text_size_check(textoben, meme_id, template_id, true)
-        text_size_check(textunten, meme_id, template_id, false)
+        text_size_check(text_up, meme_id, template_id, true)
+        text_size_check(text_down, meme_id, template_id, false)
 
     end
 

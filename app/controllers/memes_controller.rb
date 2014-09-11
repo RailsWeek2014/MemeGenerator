@@ -17,7 +17,7 @@ class MemesController < ApplicationController
             if (current_user != nil)
                 current_user.memes << @meme  
             end
-            Imagemagick_Modul.make_meme(meme_params[:textoben], meme_params[:textunten], meme_params[:template_id], @meme.id)
+            Imagemagick_Modul.make_meme(meme_params[:text_up], meme_params[:text_down], meme_params[:template_id], @meme.id)
             redirect_to meme_path(@meme.id.to_s)
         else                    
             render action: "new"
@@ -58,6 +58,6 @@ class MemesController < ApplicationController
     private
     def meme_params
         params.require('meme')
-        .permit(:title, :description, :textoben, :textunten, :template_id, :isprivate, :comment, :tag_list)
+        .permit(:title, :description, :text_up, :text_down, :template_id, :isprivate, :comment, :tag_list)
     end
 end

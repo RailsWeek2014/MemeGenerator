@@ -49,17 +49,17 @@
 
         <!-- Textarea -->
         <div class='form-group'>
-          <%= f.label :textoben, "Text oben", :class => 'control-label' %> <i>(<span id="remaining_chars_meme_textoben">120</span> Zeichen verbleibend)</i>
+          <%= f.label :text_up, "Text oben", :class => 'control-label' %> <i>(<span id="remaining_chars_meme_text_up">120</span> Zeichen verbleibend)</i>
           <div class="controls">                     
-            <%= f.text_area :textoben, :onkeyup => 'showCharLen("meme_textoben", 120)', :maxlength => 120, :class => 'form-control' %>
+            <%= f.text_area :text_up, :onkeyup => 'showCharLen("meme_text_up", 120)', :maxlength => 120, :class => 'form-control' %>
           </div>
         </div>
 
         <!-- Textarea -->
         <div class='form-group'>
-          <%= f.label :textunten, "Text unten", :class => 'control-label' %>  <i>(<span id="remaining_chars_meme_textunten">120</span> Zeichen verbleibend)</i>
+          <%= f.label :text_down, "Text unten", :class => 'control-label' %>  <i>(<span id="remaining_chars_meme_text_down">120</span> Zeichen verbleibend)</i>
           <div class="controls">                     
-           <%= f.text_area :textunten, :onkeyup => 'showCharLen("meme_textunten", 120)', :maxlength => 120, :class => 'form-control' %>
+           <%= f.text_area :text_down, :onkeyup => 'showCharLen("meme_text_down", 120)', :maxlength => 120, :class => 'form-control' %>
          </div>
        </div>
 

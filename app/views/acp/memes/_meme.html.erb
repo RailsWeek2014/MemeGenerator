@@ -13,7 +13,7 @@
         <p>
         <p>
         <b>Erstellt von</b>
-        <%= get_username_from_id(meme) %>
+        <%= get_username_from_id(meme.user_id) %>
         </p>
         <%= link_to acp_meme_path(meme.id.to_s), :class => 'btn btn-danger', :method => :delete  do %>
           <i class="glyphicon glyphicon-trash"></i> Löschen
