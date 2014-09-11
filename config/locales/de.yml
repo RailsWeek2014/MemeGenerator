@@ -38,5 +38,6 @@ de:
                             blank: "Bitte Benutzername angeben."
                         current_password:
                             blank: "Bitte aktuelles Passwort angeben."
+                            invalid: "Aktuelles Passwort ungültig."
                         password_confirmation:
                             confirmation: "Passwort bestätigung fehlt."
