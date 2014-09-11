@@ -4,7 +4,7 @@ MemeGenerator
 
 - Startseite
     - Auflistung der zuletzt erzeugten Memes ✓
-    - Tagging / suchen nach memes
+    - Tagging / suchen nach memes ✓
 
 - Benutzerverwaltung 
 
@@ -15,7 +15,7 @@ MemeGenerator
     - Kommentare ✓
     - Gefällt mir für Memes durch User ✓
 
-- Integration von Twitter/Facebook
+- Integration von Twitter/Facebook ✓
 
 - Adminbereich
     - Benutzer verwalten (löschen, bearbeiten) ✓
@@ -23,7 +23,7 @@ MemeGenerator
     - Vorlagen verwalten ✓
 
 
-- Benutze Gems :
+- Benutze Gems:
     - better_errors // Bessere Fehlerausgabe
     - binding_of_caller // Konsole in der Fehlerausgabe
     - carrierwave // Für den Dateiupload
@@ -35,6 +35,8 @@ MemeGenerator
     - socialization // Like / Unlike Funktion für Memes
     - acts-as-taggable-on // Tag Funktion für Memes
 
+- Installationshinweis:
+    - Auf dem System muss imagemagick installiert sein, und dessen command line Tool "convert" muss sich aufrufen lassen
 
 - Quellen :
     - http://www.imagemagick.org/Usage/text/
