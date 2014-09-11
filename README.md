@@ -44,3 +44,4 @@ MemeGenerator
     - https://github.com/plataformatec/devise/wiki/How-To:-Add-an-Admin-Role
     - http://rubydoc.info/github/cmer/socialization/frames
     - http://railscasts.com/episodes/382-tagging
+    - http://stackoverflow.com/questions/2165665/how-do-i-get-the-current-absolute-url-in-ruby-on-rails
