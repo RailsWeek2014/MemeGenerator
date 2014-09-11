@@ -1,14 +1,14 @@
 <div class="page-header">
-  <h1>Meine Templates</h1>
+  <h1>Meine Vorlagen</h1>
 </div>
 <div align="right">
 <%= link_to newtemplate_path, :class => "btn btn-primary btn-lg" do %>
-  <i class="glyphicon glyphicon-plus-sign"></i> Neues Template
+  <i class="glyphicon glyphicon-plus-sign"></i> Neue Vorlagen
 <% end %>
 </div>
 <br />
 <% if @meme_templates.all.count == 0 %>
-<%= "Du hast keine Templates erstellt" %>
+<%= "Du hast keine Vorlagen erstellt" %>
 <% end %>
 <div class="row">
 <%= render partial: "meme_templates/meme_template", collection: @meme_templates %></div>

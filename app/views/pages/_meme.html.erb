@@ -7,7 +7,7 @@
         <% if current_user != nil %>
         <% if current_user.likes?(meme) %>
         <%= link_to meme_unlike_path(meme), :class => "btn btn-warning btn-sm" do %>
-        <i class="glyphicon glyphicon-thumbs-down"></i> Dislike
+        <i class="glyphicon glyphicon-thumbs-down"></i> Unlike
         <span class="badge"><%= meme.likers(User).count %></span>
         <% end %>
         <% else %>
