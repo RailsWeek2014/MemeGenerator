@@ -12,7 +12,7 @@
   </div>
 
   <div class='form-group'>
-  <%= f.label :password, :class => 'control-label' %><br />
+  <%= f.label :password, "Passwort", :class => 'control-label' %><br />
   <div class="controls">
   <%= f.password_field :password, autocomplete: "off", :class => 'form-control' %>
   </div>
@@ -21,11 +21,11 @@
   <% if devise_mapping.rememberable? -%>
   <div class='form-group'>
   <%= f.check_box :remember_me %> 
-  <%= f.label :remember_me, :class => 'control-label' %>
+  <%= f.label :remember_me, "dauerhaft einloggen", :class => 'control-label' %>
   </div>
   <% end -%>
 
   <div><%= f.submit "Log in", :class => 'btn btn-primary' %></div>
 <% end %>
 
-<%= render "User/shared/links" %>
+<%= render "devise/shared/links" %>

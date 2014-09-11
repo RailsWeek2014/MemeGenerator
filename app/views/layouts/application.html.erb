@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
     <% if content_for?(:title) %>
-    <%= 'MemeGenerator - ' + yield(:title) %>
+      <%= 'MemeGenerator - ' + yield(:title) %>
     <% else %>
-    MemeGenerator
+      MemeGenerator
     <% end %>
     </title>
     <%= csrf_meta_tags %>
@@ -44,7 +44,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-default navbar-static-top">
+    <div class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>

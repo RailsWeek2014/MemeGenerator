@@ -36,7 +36,7 @@
         </p>
         </p>
       </div>
-      <%= link_to image_tag('/uploads/generated_memes/' + meme.id.to_s + '.jpg'), meme_path(meme.id.to_s) %>
+      <%= link_to image_tag(get_meme_image_link(meme.id)), meme_path(meme.id.to_s) %>
     </div>
   </div>
   </div>

@@ -1,79 +1,80 @@
 <% content_for :title do %>
- <%= @meme.title %>
+<%= @meme.title %>
 <% end %>
 <div class="page-header">
-  <h1><%= @meme.title %> 
-      <% if current_user != nil %>
-        <% if current_user.likes?(@meme) %>
+  <h1>
+  <%= @meme.title %> 
+    <% if current_user != nil %>
+      <% if current_user.likes?(@meme) %>
         <%= link_to meme_unlike_path(@meme), :class => "btn btn-warning btn-sm" do %>
         <i class="glyphicon glyphicon-thumbs-down"></i> Unlike
         <span class="badge"><%= @meme.likers(User).count %></span>
-        <% end %>
-        <% else %>
-        <%= link_to meme_like_path(@meme), :class => "btn btn-primary btn-sm" do  %>
+      <% end %>
+    <% else %>
+      <%= link_to meme_like_path(@meme), :class => "btn btn-primary btn-sm" do  %>
         <i class="glyphicon glyphicon-thumbs-up"></i> Like
         <span class="badge"><%= @meme.likers(User).count %></span>
-        <% end %>
-        <% end %>
-        <% end %>
+      <% end %>
+    <% end %>
+    <% end %>
   </h1>
 </div>
 <p>
-    <b>Erstellt von</b>
-    <%= get_username_from_id(@meme) %>
+  <b>Erstellt von</b>
+  <%= get_username_from_id(@meme) %>
 </p>
 <p>
-    <b>Beschreibung</b>
-    <%= @meme.description %> 
+  <b>Beschreibung</b>
+  <%= @meme.description %> 
 </p>
 <p>
-    <b>Erstellt am</b>
-    <%= @meme.created_at %>
+  <b>Erstellt am</b>
+  <%= @meme.created_at %>
 </p>
 <p>
-    <b>Wird gelistet:</b> 
-    <% if @meme.isprivate == false %>
-    <%= "Ja" %>
-    <% else %>
-    <%= "Nein" %>
-    <% end %>
+  <b>Wird gelistet:</b> 
+  <% if @meme.isprivate == false %>
+  <%= "Ja" %>
+  <% else %>
+  <%= "Nein" %>
+  <% end %>
 </p>
 <p>
-    <b>Tags:</b>
-    <% @meme.tag_list.each do |var| %>
-      <%= link_to show_tag_path(var), :class => "btn btn-default btn-xs" do %>
-        <% var %>
-      <% end %>
-    <% end %>
+  <b>Tags:</b>
+  <% @meme.tag_list.each do |var| %>
+  <%= link_to show_tag_path(var), :class => "btn btn-default btn-xs" do %>
+  <% var %>
+  <% end %>
+  <% end %>
 </p>
 <p>
-<%= get_social_tags %>
-    <div align="center">
-        <%= image_tag '/uploads/generated_memes/' + @meme.id.to_s + '.jpg' %>
-    </div>
+  <%= get_social_tags %>
+  <div align="center">
+    <%= image_tag get_meme_image_link(@meme.id) %>
+  </div>
 </p>
 <hr>
 <form>
-<%= render partial: "memes/comment", collection: @comments %>
+  <%= render partial: "memes/comment", collection: @comments %>
 </form>
 <%= paginate @comments %>
 <p>
-<%= form_for [@meme, @comment], :html => { :class => "form-horizontal comment" } do |f| %>
-<div class='form-group'>
-  <%= f.label :Kommentar, :class => 'control-label' %>
-  <div class="controls">
-<%= f.text_area :comment, :class => 'form-control' %>
-</div>
-</div>
-<div class='form-group'>
-  <div class="controls">
-  <% if current_user == nil %>
-    <%= f.submit "Einloggen zum kommentieren", :class => 'btn btn-primary', :disabled => 'disabled' %>
-  <% else %>
-    <%= f.submit "Kommentar hinzufügen", :class => 'btn btn-primary' %>
-  <% end %>
+  <%= form_for [@meme, @comment], :html => { :class => "form-horizontal comment" } do |f| %>
+  <div class='form-group'>
+    <%= f.label :comment, "Kommentar", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :comment, :class => 'form-control' %>
+    </div>
   </div>
-</div>
-<% end %>
+  <div class='form-group'>
+    <div class="controls">
+      <% if current_user == nil %>
+      <%= f.submit "Einloggen zum kommentieren", :class => 'btn btn-primary', :disabled => 'disabled' %>
+      <% else %>
+      <%= f.submit "Kommentar hinzufügen", :class => 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
 
 </p>

@@ -3,112 +3,93 @@
   <h1>Meme erstellen</h1>
 </div>
 
-    <% if @meme.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title">Es traten <%= @meme.errors.count %> Fehler beim erstellen des Memes auf:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @meme.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+<% if @meme.errors.any? %>
+<div id="error_expl" class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title">Es traten <%= @meme.errors.count %> Fehler beim erstellen des Memes auf:</h3>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <% @meme.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
 
 <%= form_for @meme, :html => { :class => "form-horizontal meme" } do |f| %>
 
 <div class='col-md-12'>
-<div class='row'>
-<div class='col-md-12'>
-<fieldset>
+  <div class='row'>
+    <div class='col-md-12'>
+      <fieldset>
 
-<div class="picker">
-<select class="image-picker show-html" name="meme[template_id]">
+        <div class="picker">
 
-<% MemeTemplate.all.each do |d| %>
-<% if d.isprivate != true %>
-<% @str = '<option data-img-src="/uploads/meme_template/template_img/' + d.id.to_s + '/thumb_image.jpg" value="' + d.id.to_s + '">  ' + d.id.to_s + '  </option>'.html_safe %>
-<%=raw  @str %>
-<% else %>
-<% if current_user != nil && d.user_id == current_user.id %>
-<% @str = '<option data-img-src="/uploads/meme_template/template_img/' + d.id.to_s + '/thumb_image.jpg" value="' + d.id.to_s + '">  ' + d.id.to_s + '  </option>'.html_safe %>
-<%=raw  @str %>
-<% end %>
-<% end %>
-<% end %>
+          <%= list_available_templates %>
 
-</select>
-</div>
+        </div>
 
+        <!-- Text input-->
+        <div class='form-group'>
+          <%= f.label :title, "Titel", :class => 'control-label' %> <i>(<span id="remaining_chars_meme_title">100</span> Zeichen verbleibend)</i>
+          <div class="controls">
+            <%= f.text_field :title, :onkeyup => 'showCharLen("meme_title", 100)', :maxlength => 100, :class => 'form-control' %>
+          </div>
+        </div>
 
-<!-- Text input-->
-<div class='form-group'>
-  <%= f.label :Titel, :class => 'control-label' %> <i>(<span id="remaining_chars_meme_title">100</span> Zeichen verbleibend)</i>
-  <div class="controls">
-    <%= f.text_field :title, :onkeyup => 'showCharLen("meme_title", 100)', :maxlength => 100, :class => 'form-control' %>
-  </div>
-</div>
+        <!-- Textarea -->
+        <div class='form-group'>
+          <%= f.label :description, "Beschreibung", :class => 'control-label' %> <i>(<span id="remaining_chars_meme_description">200</span> Zeichen verbleibend) (optional)</i>
+          <div class="controls">                     
+            <%= f.text_area :description, :onkeyup => 'showCharLen("meme_description", 200)', :maxlength => 200, :class => 'form-control' %>
+          </div>
+        </div>
 
-<!-- Textarea -->
-<div class='form-group'>
-  <%= f.label :Beschreibung, :class => 'control-label' %> <i>(<span id="remaining_chars_meme_description">200</span> Zeichen verbleibend)</i>
-  <div class="controls">                     
-    <%= f.text_area :description, :onkeyup => 'showCharLen("meme_description", 200)', :maxlength => 200, :class => 'form-control' %>
-  </div>
-</div>
+        <!-- Textarea -->
+        <div class='form-group'>
+          <%= f.label :textoben, "Text oben", :class => 'control-label' %> <i>(<span id="remaining_chars_meme_textoben">120</span> Zeichen verbleibend)</i>
+          <div class="controls">                     
+            <%= f.text_area :textoben, :onkeyup => 'showCharLen("meme_textoben", 120)', :maxlength => 120, :class => 'form-control' %>
+          </div>
+        </div>
 
-<!-- Textarea -->
-<div class='form-group'>
-  <%= f.label :"Text oben", :class => 'control-label' %> <i>(<span id="remaining_chars_meme_textoben">120</span> Zeichen verbleibend)</i>
-  <div class="controls">                     
-    <%= f.text_area :textoben, :onkeyup => 'showCharLen("meme_textoben", 120)', :maxlength => 120, :class => 'form-control' %>
-  </div>
-</div>
-
-<!-- Textarea -->
-<div class='form-group'>
-  <%= f.label :"Text unten", :class => 'control-label' %>  <i>(<span id="remaining_chars_meme_textunten">120</span> Zeichen verbleibend)</i>
-  <div class="controls">                     
-   <%= f.text_area :textunten, :onkeyup => 'showCharLen("meme_textunten", 120)', :maxlength => 120, :class => 'form-control' %>
-  </div>
-</div>
+        <!-- Textarea -->
+        <div class='form-group'>
+          <%= f.label :textunten, "Text unten", :class => 'control-label' %>  <i>(<span id="remaining_chars_meme_textunten">120</span> Zeichen verbleibend)</i>
+          <div class="controls">                     
+           <%= f.text_area :textunten, :onkeyup => 'showCharLen("meme_textunten", 120)', :maxlength => 120, :class => 'form-control' %>
+         </div>
+       </div>
 
 
-<div class='form-group'>
-  <%= f.label :tag_list, "Tags", :class => 'control-label' %><i> (Getrennt durch Kommas)</i>
-  <div class="controls">  
-    <%= f.text_field :tag_list, :class => 'form-control' %>
-  </div>
- </div>
+       <div class='form-group'>
+        <%= f.label :tag_list, "Tags", :class => 'control-label' %><i> (Getrennt durch Kommas) (optional)</i>
+        <div class="controls">  
+          <%= f.text_field :tag_list, :class => 'form-control', :maxlength => 120 %>
+        </div>
+      </div>
 
-<!-- checkbox --> 
-<div class='form-group'>
-<div class="checkbox">
-    <label>
-          <%= f.check_box :isprivate, :class => 'form-control' %> <%= f.label :"Meme nicht listen", :class => 'control-label' %>
-    </label>
-  </div>
-</div>
+      <!-- checkbox --> 
+      <div class='form-group'>
+        <%= f.check_box :isprivate %>
+        <%= f.label :isprivate, "Meme nicht auflisten", :class => 'control-label' %>
+      </div>
 
-<!-- Button -->
-<div class='form-group'>
-  <div class="controls">
-    <%= f.submit "meme erstellen", :class => 'btn btn-primary' %>
-  </div>
-</div>
+      <!-- Button -->
+      <div class='form-group'>
+        <div class="controls">
+          <%= f.submit "meme erstellen", :class => 'btn btn-primary' %>
+        </div>
+      </div>
 
-</fieldset>
+    </fieldset>
 
     
+  </div>
 </div>
 </div>
-</div>
-
-
-
 
 
 <% end %>

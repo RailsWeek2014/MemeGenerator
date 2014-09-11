@@ -1,21 +1,21 @@
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <%= link_to image_tag('/uploads/generated_memes/' + meme.id.to_s + '.jpg'), meme_path(meme.id.to_s) %>
+      <%= link_to image_tag(get_meme_image_link(meme.id)), meme_path(meme.id.to_s) %>
       <div class="caption">
         <h3><%= meme.title %></h3>
         <p>Erstellt: <%= meme.created_at %></p>
         <p>Wird gelistet:
-        <% if meme.isprivate == false %>
-        Ja
-        <% else %>
-        Nein
-        <% end %></p>
-        <p>
-        <%= link_to delete_meme_path(meme.id.to_s), :class => 'btn btn-danger', :method => :delete  do %>
-          <i class="glyphicon glyphicon-trash"></i> Löschen
-        <% end %>
+          <% if meme.isprivate == false %>
+          Ja
+          <% else %>
+          Nein
+          <% end %>
         </p>
-        <p></p>
+          <p>
+            <%= link_to delete_meme_path(meme.id.to_s), :class => 'btn btn-danger', :method => :delete  do %>
+            <i class="glyphicon glyphicon-trash"></i> Löschen
+            <% end %>
+          </p>
       </div>
     </div>
-  </div>
+ </div>

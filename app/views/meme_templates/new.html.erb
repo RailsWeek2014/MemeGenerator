@@ -4,57 +4,55 @@
 </div>
 <%= form_for @meme_template, :html => { :class => "form-horizontal meme_template" } do |f| %>
 
-    <% if @meme_template.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title">Es traten <%= @meme_template.errors.count %> Fehler beim anlegen der Vorlage auf:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @meme_template.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
+<% if @meme_template.errors.any? %>
+<div id="error_expl" class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title">Es traten <%= @meme_template.errors.count %> Fehler beim anlegen der Vorlage auf:</h3>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <% @meme_template.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+<div class='col-md-12'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <fieldset>
+        <!-- Text input-->
+        <div class='form-group'>
+          <%= f.label :title, "Titel", :class => 'control-label' %> <i>(<span id="remaining_chars_meme_template_title">100</span> Zeichen verbleibend)</i>
+          <div class="controls">
+            <%= f.text_field :title, :onkeyup => 'showCharLen("meme_template_title", 100)', :maxlength => 100, :class => 'form-control' %>
+          </div>
+        </div>
+
+        <!-- File Button --> 
+        <div class='form-group'>
+          <%= f.label :template_img, "Datei auswählen", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.file_field :template_img, :class => 'form-control' %> 
+          </div>
+        </div>
+
+        <!-- checkbox --> 
+        <div class='form-group'>
+          <%= f.check_box :isprivate %>
+          <%= f.label :isprivate, "private Vorlage", :class => 'control-label' %>
+        </div>
+
+
+        <!-- Button -->
+        <div class='form-group'>
+          <div class="controls">
+            <%= f.submit "Vorlage anlegen", :class => 'btn btn-primary' %>
+          </div>
+        </div>
+      </fieldset>
     </div>
-  <% end %>
-<div class='col-md-12'>
-<div class='row'>
-<div class='col-md-12'>
-<fieldset>
-<!-- Text input-->
-<div class='form-group'>
-    <%= f.label :Titel, :class => 'control-label' %> <i>(<span id="remaining_chars_meme_template_title">100</span> Zeichen verbleibend)</i>
-  <div class="controls">
-    <%= f.text_field :title, :onkeyup => 'showCharLen("meme_template_title", 100)', :maxlength => 100, :class => 'form-control' %>
   </div>
-</div>
-
-<!-- File Button --> 
-<div class='form-group'>
-  <%= f.label :"Datei auswählen", :class => 'control-label' %>
-  <div class="controls">
-    <%= f.file_field :template_img, :class => 'form-control' %> 
-  </div>
-</div>
-
-<!-- checkbox --> 
-<div class='form-group'>
-<div class="checkbox">
-    <label>
-          <%= f.check_box :isprivate, :class => 'form-control' %> <%= f.label :"Private Vorlage", :class => 'control-label' %>
-    </label>
-  </div>
-</div>
-
-<!-- Button -->
-<div class='form-group'>
-  <div class="controls">
-    <%= f.submit "Vorlage anlegen", :class => 'btn btn-primary' %>
-  </div>
-</div>
-</fieldset>
-</div>
-</div>
 </div>
 <% end %>
