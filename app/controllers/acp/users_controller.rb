@@ -23,7 +23,7 @@ module Acp
      @user = User.find(params[:id])
      params[:user].delete :password if params[:user][:password].empty?
      if @user.update(user_params)
-       redirect_to acp_users_path, :notice => "User updated successfully."
+       redirect_to acp_users_path, :notice => "Benutzer wurde Erfolgreich bearbeitet."
      else
        render :edit
      end

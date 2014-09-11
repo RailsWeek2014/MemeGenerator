@@ -4,7 +4,7 @@ class MemeTemplatesController < ApplicationController
         if (current_user != nil)
             @meme_template = MemeTemplate.new
         else
-            flash[:error] = "Einloggen um Template zu erstellen"
+            flash[:error] = "Einloggen um Vorlage zu erstellen"
             redirect_to index_path
         end
     end
@@ -13,14 +13,14 @@ class MemeTemplatesController < ApplicationController
         @meme_template = MemeTemplate.new(meme_template_params)
         if (current_user != nil)
             if @meme_template.save 
-                flash[:success] = "Template wurde angelegt"
+                flash[:success] = "Vorlage wurde angelegt"
                 current_user.meme_templates << @meme_template  
                 redirect_to newtemplate_path
             else
                 render action: "new"
             end 
         else
-            flash[:error] = "Einloggen um Template zu erstellen"
+            flash[:error] = "Einloggen um Vorlage zu erstellen"
             redirect_to index_path
         end
         
@@ -38,7 +38,7 @@ class MemeTemplatesController < ApplicationController
     def delete
         @meme_template = current_user.meme_templates.find(params[:id])
         @meme_template.destroy
-        flash[:success] = "Template wurde gelöscht"
+        flash[:success] = "Vorlage wurde gelöscht"
         redirect_to list_meme_template_path
     end
 

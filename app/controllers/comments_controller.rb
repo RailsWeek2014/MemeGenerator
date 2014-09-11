@@ -7,11 +7,11 @@ class CommentsController < ApplicationController
             @comment.commentable = @meme
             @comment.user = current_user
             if @comment.save
-                flash[:success] = "Comment wurde angelegt"
+                flash[:success] = "Kommentar wurde angelegt"
                 redirect_to @meme
             end
         else 
-            flash[:error] = "nicht eingeloggt"  
+            flash[:error] = "Nicht eingeloggt"  
             redirect_to @meme          
         end
     end

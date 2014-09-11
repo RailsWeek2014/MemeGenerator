@@ -1,9 +1,9 @@
 <%= render 'layouts/navbar_admin', :active => "templates" %>
 <div class="page-header">
-  <h1>Alle Templates</h1>
+  <h1>Alle Vorlagen</h1>
 </div>
 <% if @meme_templates.count == 0 %>
-<%= "Es sind keine Templates vorhanden" %>
+<%= "Es sind keine Vorlagen vorhanden" %>
 <% end %>
 <div class="row">
 <%= render partial: "acp/meme_templates/meme_template", collection: @meme_templates %></div>

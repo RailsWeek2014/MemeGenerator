@@ -12,7 +12,7 @@ module Acp
         def destroy
             @meme_template = MemeTemplate.all.find(params[:id])
             @meme_template.destroy
-            flash[:success] = "Template wurde gelöscht"
+            flash[:success] = "Vorlage wurde gelöscht"
             redirect_to acp_meme_templates_path
         end
 

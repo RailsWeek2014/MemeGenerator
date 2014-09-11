@@ -1,6 +1,6 @@
 <h3>Benutzer</h3>
     <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.username %></strong>.
+  Eingeloggt als <strong><%= current_user.username %></strong>.
   <ul class="nav nav-list">
 
   <li>
@@ -11,7 +11,7 @@
 
   <li>
   <%= link_to list_meme_template_path do %>
-    Meine Templates <span class="badge"><%= current_user.meme_templates.all.count %></span>
+    Meine Vorlagen <span class="badge"><%= current_user.meme_templates.all.count %></span>
   <% end %>
   </li>
 
@@ -19,11 +19,11 @@
   <% if current_user.isadmin? %>
   <li><%= link_to 'Adminbereich', acp_users_path %></li>
   <% end %>
-  <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+  <li><%= link_to "Ausloggen", destroy_user_session_path, :method => :delete %></li>
   </ul>
 <% else %>
   <ul class="nav nav-list">
-  <li><%= link_to "Sign up", new_user_registration_path %></li>
-  <li><%= link_to "Login", new_user_session_path %></li>
+  <li><%= link_to "Registrieren", new_user_registration_path %></li>
+  <li><%= link_to "Einloggen", new_user_session_path %></li>
   </ul>
 <% end %>

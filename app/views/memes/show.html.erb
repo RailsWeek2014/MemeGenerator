@@ -6,7 +6,7 @@
       <% if current_user != nil %>
         <% if current_user.likes?(@meme) %>
         <%= link_to meme_unlike_path(@meme), :class => "btn btn-warning btn-sm" do %>
-        <i class="glyphicon glyphicon-thumbs-down"></i> Dislike
+        <i class="glyphicon glyphicon-thumbs-down"></i> Unlike
         <span class="badge"><%= @meme.likers(User).count %></span>
         <% end %>
         <% else %>
@@ -77,7 +77,7 @@
   <% if current_user == nil %>
     <%= f.submit "Einloggen zum kommentieren", :class => 'btn btn-primary', :disabled => 'disabled' %>
   <% else %>
-    <%= f.submit "kommentar hinzufügen", :class => 'btn btn-primary' %>
+    <%= f.submit "Kommentar hinzufügen", :class => 'btn btn-primary' %>
   <% end %>
   </div>
 </div>
