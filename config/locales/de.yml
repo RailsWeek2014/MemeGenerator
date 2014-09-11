@@ -32,6 +32,9 @@ de:
                         email:
                             blank: "Bitte eine Email angeben."
                         password:
-                            blank: "Bitte ein Passwort angeben."
+                            blank: "Bitte Passwort angeben."
+                            too_short: "Passwort muss länger als 8 Zeichen sein."
                         username:
-                            blank: "Bitte einen Benutzername angeben."
+                            blank: "Bitte Benutzername angeben."
+                        current_password:
+                            blank: "Bitte aktuelles Passwort angeben."
