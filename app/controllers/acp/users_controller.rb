@@ -3,7 +3,7 @@ module Acp
     def index
       if current_user != nil
         if (current_user.isadmin)
-          @users = User.all
+          @users = User.all.page(params[:page]).per(6)
         else
           flash[:error] = "Sie sind kein Administrator."
           redirect_to index_path

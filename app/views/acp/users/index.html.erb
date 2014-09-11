@@ -2,12 +2,6 @@
 <div class="page-header">
   <h1>Benutzerverwaltung</h1>
 </div>
-<% if @users.count <= 1 %>
-<div class="alert alert-warning alert-dismissible" role="alert">
-  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-  Nur du existierst.
-</div>
-<% end %>
 <table class="table table-striped">
     <tr>
       <td><b>Benutzername</b></td>
@@ -20,3 +14,4 @@
     </tr>
   <%= render partial: "acp/users/user", collection: @users %>
 </table>
+<%= paginate @users %>
