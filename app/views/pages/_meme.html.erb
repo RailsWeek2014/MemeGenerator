@@ -20,7 +20,7 @@
         </h3>
         <hr>
         <p>von:
-        <% if meme.user_id != nil %>
+        <% if meme.user_id != nil && User.exists?(:id => meme.user_id) %>
         <% @User = User.find(meme.user_id) %>
         <%= @User.username %>
         <% else %>

@@ -38,6 +38,7 @@ class MemesController < ApplicationController
     def show
         @meme = Meme.find(params[:id])
         @comment = Comment.new(commentable:@meme)
+        @comments = Comment.all.where(commentable_id: @meme.id.to_s).page(params[:page]).per(6)
     end
 
     def delete

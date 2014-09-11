@@ -20,7 +20,7 @@
 </div>
 <p>
     <b>Erstellt von</b>
-    <% if @meme.user_id != nil %>
+    <% if @meme.user_id != nil && User.exists?(:id => @meme.user_id) %>
     <% @User = User.find(@meme.user_id) %>
     <%= @User.username %>
     <% else %>
@@ -61,9 +61,9 @@
 </p>
 <hr>
 <form>
-<%= render partial: "memes/comment", collection: Comment.all.where(commentable_id: @meme.id.to_s).page(params[:page]).per(6) %>
+<%= render partial: "memes/comment", collection: @comments %>
 </form>
-<%= paginate Comment.all.where(commentable_id: @meme.id.to_s).page(params[:page]).per(6) %>
+<%= paginate @comments %>
 <p>
 <%= form_for [@meme, @comment], :html => { :class => "form-horizontal comment" } do |f| %>
 <div class='form-group'>

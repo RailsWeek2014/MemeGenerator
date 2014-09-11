@@ -3,7 +3,7 @@
 </div>
 <p>
 <b>Erstellt von</b>
-<% if @meme_template.user_id != nil %>
+<% if @meme_template.user_id != nil && User.exists?(:id => @meme_template.user_id) %>
 <% @User = User.find(@meme_template.user_id) %>
 <%= @User.username %>
 <% else %>
