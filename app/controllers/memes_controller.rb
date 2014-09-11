@@ -34,9 +34,15 @@ class MemesController < ApplicationController
     end
 
     def show
-        @meme = Meme.find(params[:id])
-        @comment = Comment.new(commentable:@meme)
-        @comments = Comment.all.where(commentable_id: @meme.id.to_s).page(params[:page]).per(6)
+        if Meme.exists?(:id => params[:id])
+            @meme = Meme.find(params[:id])
+            @comment = Comment.new(commentable:@meme)
+            @comments = Comment.all.where(commentable_id: @meme.id.to_s).page(params[:page]).per(6)
+        else
+            flash[:error] = "Meme mit dieser ID existiert nicht"
+            redirect_to index_path
+        end
+
     end
 
     def delete

@@ -8,7 +8,7 @@ class Meme < ActiveRecord::Base
     attr_accessor :textunten
     attr_accessor :template_id
     attr_accessor :comment
-    validates :title, length: { in: 1..100, :message => "Der Titel muss zwischen 1 und 100 Zeichen lang sein" }
+    validates :title, length: { in: 1..50, :message => "Der Titel muss zwischen 1 und 50 Zeichen lang sein" }
     validates :description, length: { maximum: 200, :message => "Die Beschreibung darf nicht länger als 200 Zeichen sein" }
     validates :textoben, length: { in: 1..120, :message => "Der obere Text für das Meme muss zwischen 1 und 120 Zeichen lang sein" }
     validates :textunten, length: { in: 1..120, :message => "Der untere Text für das Meme muss zwischen 1 und 120 Zeichen lang sein" }

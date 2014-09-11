@@ -2,7 +2,7 @@
     <div class="thumbnail">
       <%= link_to image_tag(get_meme_image_link(meme.id)), meme_path(meme.id.to_s) %>
       <div class="caption">
-        <h3><%= meme.title %></h3>
+        <h3><p style= "word-wrap: break-word;"><%= meme.title %></p></h3>
         <p>Erstellt: <%= meme.created_at %></p>
         <p>Wird gelistet:
         <% if meme.isprivate == false %>
