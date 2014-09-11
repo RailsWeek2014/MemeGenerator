@@ -6,12 +6,12 @@
 <% if @meme.errors.any? %>
 <div id="error_expl" class="panel panel-danger">
   <div class="panel-heading">
-    <h3 class="panel-title">Es traten <%= @meme.errors.count %> Fehler beim erstellen des Memes auf:</h3>
+    <h3 class="panel-title">Es traten <%= @meme.errors.count %> Fehler beim anlegen des Memes auf:</h3>
   </div>
   <div class="panel-body">
     <ul>
-      <% @meme.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <% @meme.errors.messages.each do |msg| %>
+      <li><%= msg.last.last.html_safe %></li>
       <% end %>
     </ul>
   </div>

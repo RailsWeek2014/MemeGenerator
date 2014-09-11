@@ -26,12 +26,12 @@ de:
                 meme_template:
                     attributes:
                         template_img: 
-                            blank: "Bildpfad fehlt."
+                            blank: "Es wurde kein Bild zum hochladen ausgewählt."
                 user:
                     attributes:
                         email:
-                            blank: "Bitte Email angeben."
+                            blank: "Bitte eine Email angeben."
                         password:
-                            blank: "Bitte Passwort angeben."
+                            blank: "Bitte ein Passwort angeben."
                         username:
-                            blank: "Bitte Benutzername angeben."
+                            blank: "Bitte einen Benutzername angeben."

@@ -11,8 +11,8 @@
   </div>
   <div class="panel-body">
     <ul>
-      <% @meme_template.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+      <% @meme_template.errors.messages.each do |msg| %>
+      <li><%= msg.last.last.html_safe %></li>
       <% end %>
     </ul>
   </div>

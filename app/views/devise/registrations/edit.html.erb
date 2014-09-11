@@ -3,19 +3,19 @@
 </div>
 
 <% if @user.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title">Es traten <%= @user.errors.count %> Fehler beim ändern des Profils auf:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+<div id="error_expl" class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title">Es traten <%= @user.errors.count %> Fehler auf:</h3>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <% @user.errors.messages.each do |msg| %>
+      <li><%= msg.last.last.html_safe %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
