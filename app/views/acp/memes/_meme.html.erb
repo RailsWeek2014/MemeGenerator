@@ -13,12 +13,7 @@
         <p>
         <p>
         <b>Erstellt von</b>
-        <% if meme.user_id != nil && User.exists?(:id => meme.user_id) %>
-        <% @User = User.find(meme.user_id) %>
-        <%= @User.username %>
-        <% else %>
-        unregistriert
-        <% end %>
+        <%= get_username_from_id(meme) %>
         </p>
         <%= link_to acp_meme_path(meme.id.to_s), :class => 'btn btn-danger', :method => :delete  do %>
           <i class="glyphicon glyphicon-trash"></i> Löschen

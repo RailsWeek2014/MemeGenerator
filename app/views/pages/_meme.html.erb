@@ -20,13 +20,7 @@
         </h3>
         <hr>
         <p>von:
-        <% if meme.user_id != nil && User.exists?(:id => meme.user_id) %>
-        <% @User = User.find(meme.user_id) %>
-        <%= @User.username %>
-        <% else %>
-        unregistriert
-        <% end %>
-        - erstellt: <%= meme.created_at %>
+        <%= get_username_from_id(meme) %> - erstellt: <%= meme.created_at %>
         <br />
         Kommentare: <%= Comment.all.where(commentable_id: meme.id.to_s).count %>
         </p>
@@ -37,12 +31,8 @@
         <% var %>
         <% end %>
         <% end %>
-
         <p>
-        <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        <iframe src="//www.facebook.com/plugins/like.php?href=<%=u request.original_url %>%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
-
+        <%= get_social_tags %>
         </p>
         </p>
       </div>

@@ -14,3 +14,6 @@ admin = User.create!(email: "user2@example.com", password: "12345678", username:
 admin = User.create!(email: "user3@example.com", password: "12345678", username: "user3", isadmin: false)
 admin = User.create!(email: "user4@example.com", password: "12345678", username: "user4", isadmin: false)
 admin = User.create!(email: "user5@example.com", password: "12345678", username: "user5", isadmin: false)
+admin = User.create!(email: "user6@example.com", password: "12345678", username: "user6", isadmin: false)
+admin = User.create!(email: "user7@example.com", password: "12345678", username: "user7", isadmin: false)
+admin = User.create!(email: "user8@example.com", password: "12345678", username: "user8", isadmin: false)
